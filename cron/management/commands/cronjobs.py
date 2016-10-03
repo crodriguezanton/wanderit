@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 
 from cron.models import FlightSearchCronJob
 
-
 class Command(BaseCommand):
     help = 'Runs CronJobs'
 
