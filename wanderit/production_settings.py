@@ -7,8 +7,9 @@ from wanderit.settings import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '/cloudsql/beat-bcn:beat-bcn',
+        'HOST': '130.211.87.224',
         'NAME': 'wanderit',
         'USER': 'root',
+        'PASSWORD': 'beatbcn4113',
     }
 }
