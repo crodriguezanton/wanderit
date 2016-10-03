@@ -62,6 +62,8 @@ class FlightSearchCronJob(CronJob):
 
         log.save()
 
+        return log
+
 
 class CronJobLog(models.Model):
 
