@@ -1,4 +1,4 @@
-from wanderit.settings import *
+from wanderit.common_settings import *
 
 
 # Database
