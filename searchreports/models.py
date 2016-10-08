@@ -44,7 +44,7 @@ class SearchReport(models.Model):
             min_price=min_price_itinerary.min_price,
             max_price_itinerary=max_price_itinerary,
             max_price=max_price_itinerary.min_price,
-            mean_price=SearchReport.get_mean_price(flight_search)
+            mean_price=flight_search.get_mean_price()
         )
 
         ReportUpdate.generate(search_report)
