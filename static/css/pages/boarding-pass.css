@@ -13,7 +13,7 @@
   vertical-align: middle; }
 
 #ticket {
-  width: 350px;
+  max-width: 350px;
   background: #fff;
   margin: 0 auto;
   padding: 0px 15px; }
@@ -120,5 +120,17 @@ svg#plane {
     background-color: grey;
     float: left;
     transition: background-color 0.1s; }
+
+.ticket-pricing {
+  background-color: #9e9e9e;
+  margin-top: 15px;
+  position: relative;
+  color: white; }
+
+.arrow-icon {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  font-size: x-large; }
 
 /*# sourceMappingURL=boarding-pass.css.map */
