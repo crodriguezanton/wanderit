@@ -92,3 +92,7 @@ ENV/
 # Idea
 .idea/
 .idea/workspace.xml
+
+*.sqlite3
+
+.idea/workspace.xml
