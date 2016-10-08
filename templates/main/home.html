@@ -126,11 +126,11 @@
                 <div class="row normRow">
                     <div class="col6">
                         <div class="ticket-label">Outbound</div>
-                        <div>20/10/2016</div>
+                        <div>{{ report.outbound|date:'d/m/Y' }}</div>
                     </div>
                     <div class="col6">
                         <div class="ticket-label">Inbound</div>
-                        <div>25/10/2016</div>
+                        <div>{{ report.inbound|date:'d/m/Y' }}</div>
                     </div>
                 </div>
                 <div class="row normRow">
