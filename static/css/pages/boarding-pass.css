@@ -125,12 +125,16 @@ svg#plane {
   background-color: #9e9e9e;
   margin-top: 15px;
   position: relative;
-  color: white; }
+  color: white;
+  -webkit-transition: background 0.5s linear;
+  -moz-transition: background 0.5s linear;
+  -ms-transition: background 0.5s linear;
+  -o-transition: background 0.5s linear;
+  transition: background 0.5s linear; }
 
 .ticket-pricing:hover {
   background-color: #3f51b5;
-  color: white;
-  transition-delay: 0.5s; }
+  color: white; }
 
 .arrow-icon {
   position: absolute;

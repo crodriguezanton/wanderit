@@ -135,12 +135,16 @@ svg#plane {
   margin-top: 15px;
   position: relative;
   color: white;
+  -webkit-transition: background 0.5s linear;
+  -moz-transition: background 0.5s linear;
+  -ms-transition: background 0.5s linear;
+  -o-transition: background 0.5s linear;
+  transition: background 0.5s linear;
 }
 
 .ticket-pricing:hover {
   background-color: #3f51b5;
   color: white;
-  transition-delay:0.5s;
 }
 
 .arrow-icon {
