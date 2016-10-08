@@ -17,6 +17,7 @@
   background: #fff;
   height: 470px;
   margin: 0 auto;
+  padding: 0px 15px;
   &:after {
     content: '';
     display: block;
@@ -26,7 +27,7 @@
 }
 #ticket>.row:first-child {
   &:before, &:after {
-    background-color: #28334A;
+    background-color: #f3f4f5;
     position: absolute;
     content: '';
     display: block;

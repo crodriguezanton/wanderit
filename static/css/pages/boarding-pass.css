@@ -16,7 +16,8 @@
   width: 350px;
   background: #fff;
   height: 470px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0px 15px; }
   #ticket:after {
     content: '';
     display: block;
@@ -24,7 +25,7 @@
     clear: both; }
 
 #ticket > .row:first-child:before, #ticket > .row:first-child:after {
-  background-color: #28334A;
+  background-color: #f3f4f5;
   position: absolute;
   content: '';
   display: block;
