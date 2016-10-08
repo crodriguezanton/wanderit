@@ -86,7 +86,8 @@
         <div class="col-lg-9">
             <h2 style="text-align: center; padding-top: 0px;"><i class="icon md-flight-takeoff" aria-hidden="true"></i> Your future boarding passes</h2>
             <div class="row">
-                <div class="col-lg-6">
+                    {% for report in report_list %}
+                        <div class="col-lg-6">
                     <div id="ticket">
                 <div class="row perforated first">
                     <img class="logo"
@@ -99,8 +100,8 @@
                 <div class="row perforated destinations">
                     <div class="left">
                         <div class="ticket-label">Departing</div>
-                        <div class="airport">BCN</div>
-                        <div class="city">Barcelona</div>
+                        <div class="airport">{{ report.origin.code }}</div>
+                        <div class="city">{{ report.origin.name }}</div>
                     </div>
 
                     <svg id="plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -111,8 +112,8 @@
 
                     <div class="right">
                         <div class="ticket-label">Arriving</div>
-                        <div class="airport">JFK</div>
-                        <div class="city">New York</div>
+                        <div class="airport">{{ report.destination.code }}</div>
+                        <div class="city">{{ report.destination.name }}</div>
                     </div>
                 </div>
                 <div class="row normRow">
@@ -158,150 +159,7 @@
                     </div>
             </div>
                 </div>
-                <div class="col-lg-6">
-                    <div id="ticket">
-                <div class="row perforated first">
-                    <img class="logo"
-                         src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/United_Airlines_Logo.svg/1024px-United_Airlines_Logo.svg.png"/>
-                    <div class="right">
-                        <div class="ticket-label">Flight Number</div>
-                        <div class="num">UA 1136</div>
-                    </div>
-                </div>
-                <div class="row perforated destinations">
-                    <div class="left">
-                        <div class="ticket-label">Departing</div>
-                        <div class="airport">BCN</div>
-                        <div class="city">Barcelona</div>
-                    </div>
-
-                    <svg id="plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
-          <g>
-            <path d="M12.5,50L6.25,31.25h6.25L25,43.75h25L31.25,6.25h6.25l31.25,37.5h12.5c0,0,12.5,0,12.5,6.25s-12.5,6.25-12.5,6.25h-12.5   L37.5,93.75h-6.25L50,56.25H25l-12.5,12.5H6.25L12.5,50z" />
-          </g>
-        </svg>
-
-                    <div class="right">
-                        <div class="ticket-label">Arriving</div>
-                        <div class="airport">JFK</div>
-                        <div class="city">New York</div>
-                    </div>
-                </div>
-                <div class="row normRow">
-                    <div>
-                        <div class="ticket-label">Passenger</div>
-                        <div class="col">Carlos Rodríguez</div>
-                    </div>
-
-                </div>
-                <div class="row normRow">
-                    <div class="col6">
-                        <div class="ticket-label">Outbound</div>
-                        <div>20/10/2016</div>
-                    </div>
-                    <div class="col6">
-                        <div class="ticket-label">Inbound</div>
-                        <div>25/10/2016</div>
-                    </div>
-                </div>
-                <div class="row normRow">
-
-                    <div class="col6">
-                        <div class="ticket-label">Recommendation</div>
-                        <div class="">Wait</div>
-                    </div>
-                    <div class="col6">
-                        <div class="ticket-label">PRICE Trend</div>
-                        <div>Stable</div>
-                    </div>
-
-
-                </div>
-                <div class="row ticket-pricing" onclick="location.href='#';" style="cursor: pointer;">
-                        <div class="col6">
-                            <div class="ticket-label">From:</div>
-                            <b>350,25€</b>
-                        </div>
-                        <div class="col6 right" style="padding-right: 30px">
-                            <div>BOOK NOW </div>
-                            <div class="ticket-label">edreams</div>
-                        </div>
-                        <i class="icon md-arrow-right arrow-icon"></i>
-                    </div>
-            </div>
-                </div>
-                <div class="col-lg-6">
-                    <div id="ticket">
-                <div class="row perforated first">
-                    <img class="logo"
-                         src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/United_Airlines_Logo.svg/1024px-United_Airlines_Logo.svg.png"/>
-                    <div class="right">
-                        <div class="ticket-label">Flight Number</div>
-                        <div class="num">UA 1136</div>
-                    </div>
-                </div>
-                <div class="row perforated destinations">
-                    <div class="left">
-                        <div class="ticket-label">Departing</div>
-                        <div class="airport">BCN</div>
-                        <div class="city">Barcelona</div>
-                    </div>
-
-                    <svg id="plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
-          <g>
-            <path d="M12.5,50L6.25,31.25h6.25L25,43.75h25L31.25,6.25h6.25l31.25,37.5h12.5c0,0,12.5,0,12.5,6.25s-12.5,6.25-12.5,6.25h-12.5   L37.5,93.75h-6.25L50,56.25H25l-12.5,12.5H6.25L12.5,50z" />
-          </g>
-        </svg>
-
-                    <div class="right">
-                        <div class="ticket-label">Arriving</div>
-                        <div class="airport">JFK</div>
-                        <div class="city">New York</div>
-                    </div>
-                </div>
-                <div class="row normRow">
-                    <div>
-                        <div class="ticket-label">Passenger</div>
-                        <div class="col">Carlos Rodríguez</div>
-                    </div>
-
-                </div>
-                <div class="row normRow">
-                    <div class="col6">
-                        <div class="ticket-label">Outbound</div>
-                        <div>20/10/2016</div>
-                    </div>
-                    <div class="col6">
-                        <div class="ticket-label">Inbound</div>
-                        <div>25/10/2016</div>
-                    </div>
-                </div>
-                <div class="row normRow">
-
-                    <div class="col6">
-                        <div class="ticket-label">Recommendation</div>
-                        <div class="">Wait</div>
-                    </div>
-                    <div class="col6">
-                        <div class="ticket-label">PRICE Trend</div>
-                        <div>Stable</div>
-                    </div>
-
-
-                </div>
-                <div class="row ticket-pricing" onclick="location.href='#';" style="cursor: pointer;">
-                        <div class="col6">
-                            <div class="ticket-label">From:</div>
-                            <b>350,25€</b>
-                        </div>
-                        <div class="col6 right" style="padding-right: 30px">
-                            <div>BOOK NOW </div>
-                            <div class="ticket-label">edreams</div>
-                        </div>
-                        <i class="icon md-arrow-right arrow-icon"></i>
-                    </div>
-            </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
