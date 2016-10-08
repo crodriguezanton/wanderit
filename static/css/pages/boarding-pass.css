@@ -16,7 +16,7 @@
   width: 350px;
   background: #fff;
   margin: 0 auto;
-  padding: 0px 15px 15px; }
+  padding: 0px 15px; }
   #ticket:after {
     content: '';
     display: block;
