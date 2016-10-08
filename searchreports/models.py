@@ -134,7 +134,7 @@ class ReportUpdate(TimeStampedModel):
 
     def _abs_diff(self, prev):
         assert prev is not None
-        return prev.search_report.min_price - self.search_report.min_price
+        return self.search_report.min_price - prev.search_report.min_price
 
     def _rel_diff(self, prev):
         return self._abs_diff(prev) / prev.search_report.min_price
