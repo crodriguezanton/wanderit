@@ -145,7 +145,7 @@ class ReportUpdate(TimeStampedModel):
         assert prev is not None
         assert next is not None
         timedif = self.search_report.flight_search.created - prev.search_report.flight_search.created
-        return (next._rel_diff(self) - self._rel_diff(prev)) / timedif.hours
+        return (next._rel_diff(self) - self._rel_diff(prev)) / (timedif.seconds * 3600 + 1)
 
     def _has_min_extremum(self, prev, next):
         assert prev is not None
