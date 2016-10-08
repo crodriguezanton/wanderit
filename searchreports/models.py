@@ -34,8 +34,8 @@ class SearchReport(models.Model):
 
     @staticmethod
     def generate(flight_search):
-        min_price_itinerary = SearchReport.get_min_price(flight_search)
-        max_price_itinerary = SearchReport.get_max_price(flight_search)
+        min_price_itinerary = flight_search.get_min_price()
+        max_price_itinerary = flight_search.get_max_price()
 
         search_report = SearchReport.objects.create(
             flight_search=flight_search,
