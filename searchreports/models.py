@@ -82,9 +82,9 @@ class ReportUpdate(TimeStampedModel):
         last = True
         previous_sr = search_report.get_previous()
         previous = None
-        
+
         if previous_sr is not None:
-            previous = previous_sr.report_update
+            previous = previous_sr.reportupdate
 
         if previous_sr is None:
             first = True
@@ -96,9 +96,9 @@ class ReportUpdate(TimeStampedModel):
             previous.save()
 
             if not prev_first and not previous.prev_first:
-                previous.update_fields(previous=previous_sr.get_previous().report_update,
-                                       next=previous_sr.get_next().report_update,
-                                       prev_previous=previous_sr.get_previous().get_previous().report_update)
+                previous.update_fields(previous=previous_sr.get_previous().reportupdate,
+                                       next=previous_sr.get_next().reportupdate,
+                                       prev_previous=previous_sr.get_previous().get_previous().reportupdate)
 
         reportupdate = cls.objects.create(
             search_report=search_report,
@@ -139,13 +139,13 @@ class ReportUpdate(TimeStampedModel):
     def _abs_2deriv(self, prev, next):
         assert prev is not None
         assert next is not None
-        return next.report_update._abs_diff(self) - self._abs_diff(prev)
+        return next._abs_diff(self) - self._abs_diff(prev)
 
     def _rel_2deriv(self, prev, next):
         assert prev is not None
         assert next is not None
         timedif = self.search_report.flight_search.created - prev.search_report.flight_search.created
-        return (next.report_update._rel_diff(self) - self._rel_diff(prev)) / timedif.hours
+        return (next._rel_diff(self) - self._rel_diff(prev)) / timedif.hours
 
     def _has_min_extremum(self, prev, next):
         assert prev is not None
