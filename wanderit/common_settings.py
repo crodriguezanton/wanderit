@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django_extensions',
     'cron',
     'skyscannerSDK',
+    'travelrequests',
+    'searchreports',
+    'main',
 ]
 
 MIDDLEWARE = [
