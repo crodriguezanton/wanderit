@@ -81,8 +81,12 @@ class ReportUpdate(TimeStampedModel):
         prev_first = False
         last = True
         previous_sr = search_report.get_previous()
-        previous = previous_sr.report_update
-        if previous is None:
+        previous = None
+        
+        if previous_sr is not None:
+            previous = previous_sr.report_update
+
+        if previous_sr is None:
             first = True
         elif previous_sr.get_previous() is None:
             prev_first = True
