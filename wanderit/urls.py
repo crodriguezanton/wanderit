@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+
+from main.views import HomeView
 from searchreports.views import ReportDetailView, SearchReportDetailView
 
 urlpatterns = [
+    url(r'^$', HomeView.as_view()),
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^admin/', admin.site.urls),
