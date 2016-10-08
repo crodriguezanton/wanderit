@@ -1,3 +1,12 @@
 from django.shortcuts import render
+from django.views.generic import DetailView
 
-# Create your views here.
+from searchreports.models import Report, SearchReport
+
+
+class ReportDetailView(DetailView):
+    model = Report
+
+
+class SearchReportDetailView(DetailView):
+    model = SearchReport
