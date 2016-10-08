@@ -1,10 +1,33 @@
 {% extends 'base.html' %}
 {% block extra_css %}
+    <link rel="stylesheet" href="/static/css/widgets/weather.min.css?v2.2.0">
     <link rel="stylesheet" href="/static/css/pages/boarding-pass.css">
 {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-lg-3">
+            <div class="widget widget-shadow">
+            <div class="widget-header cover overlay">
+              <img class="cover-image height-200" src="static/photos/city-5-960x640.jpg" alt="...">
+              <div class="overlay-panel overlay-background">
+                <div class="font-size-16 pull-right"><i class="icon md-pin" aria-hidden="true"></i></div>
+                <p class="font-size-20">City, Country</p>
+                <p class="font-size-20">
+                  <i class="wi-day-cloudy margin-right-15 font-size-40"></i>
+                  <span class="font-size-40 blue-600">20°
+                    <span class="font-size-30">C</span>
+                  </span>
+                  <span>/</span>
+                  <span>7°
+                    <span class="font-size-16">C</span>
+                  </span>
+                </p>
+                <p class="margin-bottom-5">MONDAY</p>
+                <p>11.11.2016</p>
+              </div>
+            </div>
+          </div>
+
             <div class="panel">
             <div class="panel-heading">
               <h3 class="panel-title">Your desired cities</h3>
