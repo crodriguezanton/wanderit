@@ -7,13 +7,13 @@ class ReportUpdateAdmin(admin.ModelAdmin):
                     'abs_deriv', 'has_min_extremum',
                     'has_positive_change_of_concavity',
                     'has_negative_change_of_concavity',
-                    'created')
+                    'search_created')
     list_filter = ('search_report__report',)
 
     def min_price(self, obj):
         return obj.search_report.min_price
 
-    def created(self, obj):
+    def search_created(self, obj):
         return obj.search_report.flight_search.created
 
 admin.site.register(Report)

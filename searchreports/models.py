@@ -13,6 +13,9 @@ class Report(models.Model):
     outbound = models.DateField()
     inbound = models.DateField()
 
+    def __unicode__(self):
+        return self.origin.code + '-' + self.destination.code
+
     @classmethod
     def get_report(cls, flight_search):
         return cls.objects.get_or_create(
