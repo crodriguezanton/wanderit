@@ -91,15 +91,6 @@ class ReportUpdate(TimeStampedModel):
         elif previous_sr.get_previous() is None:
             prev_first = True
 
-        if not first:
-            previous.last = False
-            previous.save()
-
-            if not prev_first and not previous.prev_first:
-                previous.update_fields(previous=previous_sr.get_previous().reportupdate,
-                                       next=previous_sr.get_next().reportupdate,
-                                       prev_previous=previous_sr.get_previous().get_previous().reportupdate)
-
         reportupdate = cls.objects.create(
             search_report=search_report,
             first=first,
@@ -108,6 +99,15 @@ class ReportUpdate(TimeStampedModel):
         )
 
         reportupdate.update_fields(previous=previous)
+
+        if not first:
+            previous.last = False
+            previous.save()
+
+            if not prev_first and not previous.prev_first:
+                previous.update_fields(previous=previous_sr.get_previous().reportupdate,
+                                       next=reportupdate,
+                                       prev_previous=previous_sr.get_previous().get_previous().reportupdate)
 
         return reportupdate
 
