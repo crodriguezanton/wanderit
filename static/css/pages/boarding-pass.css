@@ -134,7 +134,7 @@ svg#plane {
 
 .ticket-pricing:hover {
   background-color: #3f51b5;
-  color: white; }
+  color: white !important; }
 
 .arrow-icon {
   position: absolute;
