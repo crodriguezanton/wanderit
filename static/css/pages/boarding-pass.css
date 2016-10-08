@@ -3,13 +3,13 @@
   opacity: 0; }
 
 .table {
-  display: table;
+  display: block;
   width: 100%;
   position: absolute;
   height: 100%; }
 
 .table-cell {
-  display: table-cell;
+  display: block;
   vertical-align: middle; }
 
 #ticket {
@@ -54,7 +54,7 @@
     clear: both;
     display: block; }
 
-.label {
+.ticket .label {
   font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
