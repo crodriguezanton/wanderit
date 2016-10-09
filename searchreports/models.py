@@ -1,7 +1,4 @@
-from __future__ import unicode_literals
-
 from django.db import models
-from django.db.models import Min, Avg
 from django_extensions.db.models import TimeStampedModel
 
 from skyscannerSDK.models import FlightSearch, Itinerary, Place
