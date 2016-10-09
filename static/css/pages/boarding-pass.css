@@ -143,4 +143,9 @@ svg#plane {
 .add-panel:hover {
   background-color: #90CAF9; }
 
+.cities-panel {
+  margin-top: -35px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
 /*# sourceMappingURL=boarding-pass.css.map */
