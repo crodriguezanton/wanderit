@@ -149,26 +149,26 @@ class ReportUpdate(TimeStampedModel):
 
             if not prev_first and not previous.prev_first:
                 previous.update_fields(previous=previous_sr.get_previous().reportupdate,
-                                       next=reportupdate,
+                                       following=reportupdate,
                                        prev_previous=previous_sr.get_previous().get_previous().reportupdate)
 
         return reportupdate
 
-    def update_fields(self, previous=None, next=None, prev_previous=None):
+    def update_fields(self, previous=None, following=None, prev_previous=None):
         if not self.first:
             self.abs_diff = self._abs_diff(previous)
             self.rel_diff = self._rel_diff(previous)
 
             if not self.last:
-                self.abs_deriv = self._abs_2deriv(previous, next)
-                self.rel_deriv = self._rel_2deriv(previous, next)
-                self.has_min_extremum = self._has_min_extremum(previous, next)
+                self.abs_deriv = self._abs_2deriv(previous, following)
+                self.rel_deriv = self._rel_2deriv(previous, following)
+                self.has_min_extremum = self._has_min_extremum(previous, following)
 
                 if not self.prev_first:
                     self.has_positive_change_of_concavity = self._has_positive_change_of_concavity(prev_previous,
-                                                                                                   previous, next)
+                                                                                                   previous, following)
                     self.has_negative_change_of_concavity = self._has_negative_change_of_concavity(prev_previous,
-                                                                                                   previous, next)
+                                                                                                   previous, following)
 
         self.save()
 
@@ -179,30 +179,30 @@ class ReportUpdate(TimeStampedModel):
     def _rel_diff(self, prev):
         return self._abs_diff(prev) / prev.search_report.min_price
 
-    def _abs_2deriv(self, prev, next):
+    def _abs_2deriv(self, prev, following):
         assert prev is not None
-        assert next is not None
-        return next._abs_diff(self) - self._abs_diff(prev)
+        assert following is not None
+        return following._abs_diff(self) - self._abs_diff(prev)
 
-    def _rel_2deriv(self, prev, next):
+    def _rel_2deriv(self, prev, following):
         assert prev is not None
-        assert next is not None
+        assert following is not None
         timedif = self.search_report.flight_search.created - prev.search_report.flight_search.created
-        return (next._rel_diff(self) - self._rel_diff(prev)) / (timedif.seconds * 3600 + 1)
+        return (following._rel_diff(self) - self._rel_diff(prev)) / (timedif.seconds * 3600 + 1)
 
-    def _has_min_extremum(self, prev, next):
+    def _has_min_extremum(self, prev, following):
         assert prev is not None
-        assert next is not None
-        return self._abs_diff(prev) <= 0 and next._abs_diff(self) > 0
+        assert following is not None
+        return self._abs_diff(prev) <= 0 and following._abs_diff(self) > 0
 
-    def _has_positive_change_of_concavity(self, prev_prev, prev, next):
+    def _has_positive_change_of_concavity(self, prev_prev, prev, following):
         assert prev_prev is not None
         assert prev is not None
-        assert next is not None
-        return prev._abs_2deriv(prev_prev, self) <= 0 and self._abs_2deriv(prev, next) > 0
+        assert following is not None
+        return prev._abs_2deriv(prev_prev, self) <= 0 and self._abs_2deriv(prev, following) > 0
 
-    def _has_negative_change_of_concavity(self, prev_prev, prev, next):
+    def _has_negative_change_of_concavity(self, prev_prev, prev, following):
         assert prev_prev is not None
         assert prev is not None
-        assert next is not None
-        return prev._abs_2deriv(prev_prev, self) >= 0 and self._abs_2deriv(prev, next) < 0
+        assert following is not None
+        return prev._abs_2deriv(prev_prev, self) >= 0 and self._abs_2deriv(prev, following) < 0

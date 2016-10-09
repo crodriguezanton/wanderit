@@ -10,10 +10,12 @@ class ReportUpdateAdmin(admin.ModelAdmin):
                     'search_created')
     list_filter = ('search_report__report',)
 
-    def min_price(self, obj):
+    @staticmethod
+    def min_price(obj):
         return obj.search_report.min_price
 
-    def search_created(self, obj):
+    @staticmethod
+    def search_created(obj):
         return obj.search_report.flight_search.created
 
 admin.site.register(Report)
