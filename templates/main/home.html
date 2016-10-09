@@ -159,11 +159,11 @@
                 <div class="row ticket-pricing" onclick="location.href='{{ pricing_option.deeplink }}';" style="cursor: pointer;">
                         <div class="col6">
                             <div class="ticket-label">From:</div>
-                            <b>{{ pricing_option.price }}€</b>
+                            <b>{{ pricing_option.price|floatformat:2 }}€</b>
                         </div>
                         <div class="col6 right" style="padding-right: 30px">
                             <div>BOOK NOW </div>
-                            <div class="ticket-label">{{ pricing_option.agent.image }}</div>
+                            <div class="ticket-label">{{ pricing_option.agent.name }}</div>
                         </div>
                         <i class="icon md-arrow-right arrow-icon"></i>
                     </div>
