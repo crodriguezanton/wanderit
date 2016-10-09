@@ -55,7 +55,7 @@ class Report(models.Model):
         else:
             return '<div class=""><i class="icon md-trending-flat"></i> Stable</div>'
 
-    def get_reccomendation_html(self):
+    def get_recommendation_html(self):
         if self.get_reccomendation() == 'WAIT':
             return '<div class="">Wait</div>'
         elif self.get_reccomendation() == 'BUYWAIT':
