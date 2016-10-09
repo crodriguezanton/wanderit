@@ -31,6 +31,39 @@ class Report(models.Model):
     def get_pricing_option(self):
         return self.searchreport_set.all().order_by('-flight_search__created').first().min_price_itinerary.pricingoption_set.all().order_by('price').first()
 
+    def get_price_trend(self):
+        reports = self.searchreport_set.all().order_by('-flight_search__created')[:2]
+        if reports.filter(reportupdate__has_negative_change_of_concavity=True).count():
+            return 'UP'
+        if reports.filter(reportupdate__has_min_extremum=True).count():
+            return 'DOWN'
+        return 'STABLE'
+
+    def get_reccomendation(self):
+        if self.get_price_trend() == 'UP':
+            return 'WAIT'
+        elif self.get_price_trend() == 'DOWN':
+            return 'BUYWAIT'
+        else:
+            return 'BUY'
+
+    def get_price_trend_html(self):
+        if self.get_price_trend() == 'UP':
+            return '<div class="red-600"><i class="icon md-trending-up"></i> Up</div>'
+        elif self.get_price_trend() == 'DOWN':
+            return '<div class="green-600"><i class="icon md-trending-down"></i> Down</div>'
+        else:
+            return '<div class=""><i class="icon md-trending-flat"></i> Stable</div>'
+
+    def get_reccomendation_html(self):
+        if self.get_reccomendation() == 'WAIT':
+            return '<div class="">Wait</div>'
+        elif self.get_reccomendation() == 'BUYWAIT':
+            return '<div class="blue-600">Buy/Wait</div>'
+        else:
+            return '<div class="green-600">Buy</div>'
+
+
 
 class SearchReport(models.Model):
     flight_search = models.ForeignKey(FlightSearch)

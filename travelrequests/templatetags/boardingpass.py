@@ -22,8 +22,8 @@ class WithNode(Node):
         assert isinstance(report, Report)
 
         context['carrier'] = report.get_carrier()
-        context['recommendation'] = 'Wait'
-        context['price_trend'] = 'Stable'
+        context['recommendation'] = report.get_recommendation_html()
+        context['price_trend'] = report.get_price_trend_html()
         context['pricing_option'] = report.get_pricing_option()
 
         return self.nodelist.render(context)
