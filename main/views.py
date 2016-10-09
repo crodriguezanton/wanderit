@@ -1,9 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from searchreports.models import Report
 
 
-class HomeView(ListView):
+class HomeView(ListView, LoginRequiredMixin):
     template_name = 'main/home.html'
     model = Report
 

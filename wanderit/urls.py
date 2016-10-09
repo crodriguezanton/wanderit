@@ -21,6 +21,7 @@ from searchreports.views import ReportDetailView, SearchReportDetailView
 
 urlpatterns = [
     url(r'^$', HomeView.as_view()),
+    url(r'^accounts/', include('allauth.urls')),
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^admin/', admin.site.urls),

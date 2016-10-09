@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html class="no-js css-menubar" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="google-site-verification" content="37wglobsqzKYwPmUbO-5w_QQfEXIF8VYjiB15GUbBbM" />
+
+  <title>wanderit | {% trans 'Login' %}</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-extend.min.css">
+  <link rel="stylesheet" href="/static/css/site.min.css">
+
+  <!-- Plugins -->
+  <link rel="stylesheet" href="/static/vendor/animsition/animsition.css">
+  <link rel="stylesheet" href="/static/vendor/asscrollable/asScrollable.css">
+  <link rel="stylesheet" href="/static/vendor/switchery/switchery.css">
+  <link rel="stylesheet" href="/static/vendor/intro-js/introjs.css">
+  <link rel="stylesheet" href="/static/vendor/slidepanel/slidePanel.css">
+  <link rel="stylesheet" href="/static/vendor/flag-icon-css/flag-icon.css">
+
+  <!-- Page -->
+  <link rel="stylesheet" href="/static/css/pages/login-v2.css">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/static/fonts/web-icons/web-icons.min.css">
+  <link rel="stylesheet" href="/static/fonts/brand-icons/brand-icons.min.css">
+  <link rel="stylesheet" href="/static/fonts/font-awesome/font-awesome.min.css">
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+    <script src="/static/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 10]>
+    <script src="/static/vendor/media-match/media.match.min.js"></script>
+    <script src="/static/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- Scripts -->
+  <script src="/static/vendor/modernizr/modernizr.js"></script>
+  <script src="/static/vendor/breakpoints/breakpoints.js"></script>
+  <script>
+    Breakpoints();
+  </script>
+</head>
+<body class="page-login-v2 layout-full page-dark">
+  <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+  <!-- Page -->
+  <div class="page animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
+    <div class="page-content">
+      <div class="page-brand-info">
+        <div class="brand">
+          <h1 class="brand-text font-size-70" style="font-weight: 300; font-family: Exo,sans-serif; text-transform:none"> <b style="font-weight: 700">wander</b>it</h1>
+            <p class="font-size-20">Automated travel search website that offers travel options using a list of cities and a list of dates</p>
+        </div>
+        <p></p>
+      </div>
+
+      <div class="page-login-main">
+        <div class="brand visible-xs">
+          <img class="brand-img" src="/static/img/beatbcn.png" style="width:120px" alt="...">
+          <h3 class="brand-text font-size-40" style="font-weight: 300; font-family: Exo,sans-serif; text-transform:none"> <b style="font-weight: 700">wander</b>it</h3>
+        </div>
+        <h3 class="font-size-24">{% trans 'Login' %}</h3>
+        <p>{% trans 'Login with your <span style="font-family: Exo,sans-serif;">wanderit</span> account.' %}</p>
+      {% load socialaccount %}
+        <a class="btn btn-labeled btn-block social-google-plus waves-effect waves-light" href="{% provider_login_url "google" %}">
+                    <span class="btn-label">
+                        <i class="icon fa-google" aria-hidden="true"></i>
+                    </span>
+            Login with Google
+        </a>
+      <a class="btn btn-labeled btn-block social-facebook waves-effect waves-light" href="{% provider_login_url "google" %}">
+                    <span class="btn-label">
+                        <i class="icon fa-facebook" aria-hidden="true"></i>
+                    </span>
+            Login with Facebook
+        </a>
+        <a class="btn btn-labeled btn-block social-github waves-effect waves-light" href="{% provider_login_url "google" %}">
+                    <span class="btn-label">
+                        <i class="icon fa-github" aria-hidden="true"></i>
+                    </span>
+            Login with GitHub
+        </a>
+      <a class="btn btn-labeled btn-block social-twitter waves-effect waves-light" href="{% provider_login_url "google" %}">
+                    <span class="btn-label">
+                        <i class="icon fa-twitter" aria-hidden="true"></i>
+                    </span>
+            Login with Twitter
+        </a>
+
+        <form id="loginform" method="post" action="{% url 'account_login' %}" role="form">
+            {% csrf_token %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+            <input type="hidden" name="domain" value="{{domain}}">
+            <input type="hidden" name="subdomain" value="{{subdomain}}">
+          <input type="hidden" name="extension" value="{{extension}}">
+        {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert"> {{ error }} </div>
+                {% endfor %}
+                <div class="gap"></div>
+                {% for error in form.username.errors %}
+                    <div class="alert alert-danger" role="alert"> {{ error }} </div>
+                {% endfor %}
+          <div class="form-group form-material floating">
+            <input type="email" class="form-control empty" id="{{ form.login.id_for_label }}" name="{{ form.login.html_name }}" value="{{ POST.username }}">
+            <label class="floating-label" for="{{ form.login.id_for_label }}">{% trans 'Email' %}</label>
+          </div>
+        {% for error in form.password.errors %}
+                    <div class="alert alert-danger" role="alert"> {{ error }} </div>
+                {% endfor %}
+          <div class="form-group form-material floating">
+              <input type="password" class="form-control empty" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}">
+          <label class="floating-label" for="{{ form.password.id_for_label }}">{% trans 'Password' %}</label>
+          </div>
+          <div class="form-group clearfix">
+            <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+
+            </div>
+            <a class="pull-right" href="{% url 'account_reset_password' %}">{% trans 'Forgot password?' %}</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">{% trans 'Login' %}</button>
+        </form>
+
+        <p>{% trans "Don't have an account?" %} <a href="{% url 'account_signup' %}">{% trans 'Register' %}</a></p>
+
+        <footer class="page-copyright">
+          <p>POWERED BY <b>beat.bcn</b></p>
+          <p>{% blocktrans %}© 2016 ALL RIGHTS RESERVED{% endblocktrans %}</p>
+          <div class="social">
+            <a class="btn btn-icon btn-round social-twitter" href="http://twitter.com/beatbcn">
+              <i class="icon fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-icon btn-round social-facebook" href="http://facebook.com/beatdotbcn">
+              <i class="icon fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-icon btn-round social-google-plus" href="https://plus.google.com/u/2/112406600943631572276/about">
+              <i class="icon fa-google-plus" aria-hidden="true"></i>
+            </a>
+          </div>
+        </footer>
+      </div>
+
+    </div>
+  </div>
+  <!-- End Page -->
+
+
+  <!-- Core  -->
+  <script src="/static/vendor/jquery/jquery.js"></script>
+  <script src="/static/vendor/bootstrap/bootstrap.js"></script>
+  <script src="/static/vendor/animsition/jquery.animsition.js"></script>
+  <script src="/static/vendor/asscroll/jquery-asScroll.js"></script>
+  <script src="/static/vendor/mousewheel/jquery.mousewheel.js"></script>
+  <script src="/static/vendor/asscrollable/jquery.asScrollable.all.js"></script>
+  <script src="/static/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+
+  <!-- Plugins -->
+  <script src="/static/vendor/switchery/switchery.min.js"></script>
+  <script src="/static/vendor/intro-js/intro.js"></script>
+  <script src="/static/vendor/screenfull/screenfull.js"></script>
+  <script src="/static/vendor/slidepanel/jquery-slidePanel.js"></script>
+
+  <!-- Plugins For This Page -->
+  <script src="/static/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+  <!-- Scripts -->
+  <script src="/static/js/core.js"></script>
+  <script src="/static/js/site.js"></script>
+
+  <script src="/static/js/sections/menu.js"></script>
+  <script src="/static/js/sections/menubar.js"></script>
+  <script src="/static/js/sections/sidebar.js"></script>
+
+  <script src="/static/js/configs/config-colors.js"></script>
+  <script src="/static/js/configs/config-tour.js"></script>
+
+  <script src="/static/js/components/asscrollable.js"></script>
+  <script src="/static/js/components/animsition.js"></script>
+  <script src="/static/js/components/slidepanel.js"></script>
+  <script src="/static/js/components/switchery.js"></script>
+  <script src="/static/js/components/material.js"></script>
+
+  <script>
+    (function(document, window, $) {
+      'use strict';
+      var Site = window.Site;
+      $(document).ready(function() {
+        Site.run();
+      });
+    })(document, window, jQuery);
+  </script>
+
+
+</body>
+
+</html>
