@@ -32,7 +32,7 @@ class Report(models.Model):
         return self.searchreport_set.all().order_by('-flight_search__created').first().min_price_itinerary.pricingoption_set.all().order_by('price').first()
 
     def get_price_trend(self):
-        dummyreports = self.searchreport_set.all().order_by('-flight_search__created').values_list('pk', flat=True)
+        dummyreports = list(self.searchreport_set.all().order_by('-flight_search__created').values_list('pk', flat=True))[:2]
         reports = SearchReport.objects.filter(pk__in=dummyreports)
         if reports.filter(reportupdate__has_negative_change_of_concavity=True).count():
             return 'UP'
