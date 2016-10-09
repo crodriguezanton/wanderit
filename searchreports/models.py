@@ -25,6 +25,12 @@ class Report(models.Model):
             inbound=flight_search.inbound
         )[0]
 
+    def get_carrier(self):
+        return self.searchreport_set.all().order_by('-flight_search__created').first().min_price_itinerary.outbound_leg.carriers.all().first()
+
+    def get_pricing_option(self):
+        return self.searchreport_set.all().order_by('-flight_search__created').first().min_price_itinerary.pricingoption_set.all().order_by('price').first()
+
 
 class SearchReport(models.Model):
     flight_search = models.ForeignKey(FlightSearch)

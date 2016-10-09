@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load boardingpass %}
 {% block extra_css %}
     <link rel="stylesheet" href="/static/css/widgets/weather.min.css?v2.2.0">
     <link rel="stylesheet" href="/static/css/pages/boarding-pass.css">
@@ -55,7 +56,7 @@
                 <tr>
                   <td>LON</td>
                   <td>London</td>
-                    <td class="pull-right">
+                    <td style="text-align: right">
                         <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
                     </td>
                 </tr>
@@ -73,15 +74,13 @@
             <table class="table table-hover">
               <tbody>
                 <tr>
-                  <td>08/12/2016</td>
-                  <td>11/12/2016</td>
+                  <td>08/12/2016 - 11/12/2016</td>
                     <td style="text-align: right">
                         <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
                     </td>
                 </tr>
                 <tr>
-                  <td>28/01/2017</td>
-                  <td>03/02/2017</td>
+                  <td>28/01/2017 - 03/02/2017</td>
                     <td style="text-align: right">
                         <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
                     </td>
@@ -97,14 +96,15 @@
             <h2 style="text-align: center; padding-top: 0px;"><i class="icon md-flight-takeoff" aria-hidden="true"></i> Your future boarding passes</h2>
             <div class="row">
                     {% for report in report_list %}
+                        {% boardingpass report %}
                         <div class="col-lg-6">
                     <div id="ticket">
                 <div class="row perforated first">
                     <img class="logo"
-                         src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/United_Airlines_Logo.svg/1024px-United_Airlines_Logo.svg.png"/>
+                         src="{{ carrier.image }}"/>
                     <div class="right">
-                        <div class="ticket-label">Flight Number</div>
-                        <div class="num">UA 1136</div>
+                        <div class="ticket-label">{{ carrier.name }}</div>
+                        <div class="num">{{ carrier.code }}</div>
                     </div>
                 </div>
                 <div class="row perforated destinations">
@@ -147,28 +147,29 @@
 
                     <div class="col6">
                         <div class="ticket-label">Recommendation</div>
-                        <div class="">Wait</div>
+                        <div class="">{{ recommendation }}</div>
                     </div>
                     <div class="col6">
                         <div class="ticket-label">PRICE Trend</div>
-                        <div>Stable</div>
+                        <div>{{ price_trend }}</div>
                     </div>
 
 
                 </div>
-                <div class="row ticket-pricing" onclick="location.href='#';" style="cursor: pointer;">
+                <div class="row ticket-pricing" onclick="location.href='{{ pricing_option.deeplink }}';" style="cursor: pointer;">
                         <div class="col6">
                             <div class="ticket-label">From:</div>
-                            <b>350,25€</b>
+                            <b>{{ pricing_option.price }}€</b>
                         </div>
                         <div class="col6 right" style="padding-right: 30px">
                             <div>BOOK NOW </div>
-                            <div class="ticket-label">edreams</div>
+                            <div class="ticket-label">{{ pricing_option.agent.image }}</div>
                         </div>
                         <i class="icon md-arrow-right arrow-icon"></i>
                     </div>
             </div>
                 </div>
+                        {% endboardingpass %}
                 {% endfor %}
             </div>
         </div>
