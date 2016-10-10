@@ -164,7 +164,7 @@ svg#plane {
   border-top-right-radius: 0;
 }
 
-#destination:hover > #test {
+#destination:hover + #test {
   background-color: blue;
 }
 
