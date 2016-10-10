@@ -100,8 +100,9 @@
             <div class="row">
                     {% for report in report_list %}
                         {% boardingpass report %}
-                        <div class="col-lg-6">
-                    <div id="ticket">
+                        <div class="col-lg-6 flip-container">
+                        <div class="flipper">
+                    <div id="ticket front">
                 <div class="row perforated first">
                     <img class="logo"
                          src="{{ carrier.image }}"/>
@@ -174,7 +175,11 @@
                         <i class="icon md-arrow-right arrow-icon"></i>
                     </div>
             </div>
+                            <div class="ticket back">
+                                Test
+                            </div>
                 </div>
+                            </div>
                         {% endboardingpass %}
                 {% endfor %}
             </div>
