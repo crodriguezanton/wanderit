@@ -10,7 +10,6 @@
 language: python
 
 python:
-  - 2.6
   - 2.7
 
 env:
@@ -25,7 +24,7 @@ install:
   - pip install django==$DJANGO --quiet
 
 before_script:
-  - cp /home/travis/builds/crodriguezanton/wanderit/wanderit/production_settings.py /home/travis/builds/crodriguezanton/wanderit/wanderit/settings.py
+  - cp ~/builds/crodriguezanton/wanderit/wanderit/production_settings.py ~/builds/crodriguezanton/wanderit/wanderit/settings.py
 
 script:
   - python manage.py runserver
