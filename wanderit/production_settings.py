@@ -3,15 +3,28 @@ from wanderit.common_settings import *
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '130.211.87.224',
-        'NAME': 'wanderit',
-        'USER': 'root',
-        'PASSWORD': 'beatbcn4113',
+
+if 'TRAVIS' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+            'NAME':     'travisci',
+            'USER':     'postgres',
+            'PASSWORD': '',
+            'HOST':     'localhost',
+            'PORT':     '',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '130.211.87.224',
+            'NAME': 'wanderit',
+            'USER': 'root',
+            'PASSWORD': 'beatbcn4113',
+        }
+    }
 
 
 """ Static files and media (CSS, JavaScript, Images) """
