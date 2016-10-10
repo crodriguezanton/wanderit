@@ -100,156 +100,78 @@
             <div class="row">
                     {% for report in report_list %}
                         {% boardingpass report %}
-                            <div class="col-lg-6 flip-container">
-                                <div class="flipper">
-                                    <div id="ticket" class="front">
-                        <div class="row perforated first">
-                            <img class="logo"
-                                 src="{{ carrier.image }}"/>
-                            <div class="right">
-                                <div class="ticket-label">{{ carrier.name }}</div>
-                                <div class="num">{{ carrier.code }}</div>
-                            </div>
-                        </div>
-                        <div class="row perforated destinations" id="destination">
-                            <div class="left">
-                                <div class="ticket-label">Departing</div>
-                                <div class="airport">{{ report.origin.code }}</div>
-                                <div class="city">{{ report.origin.name }}</div>
-                            </div>
-
-                            <svg id="plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
-                  <g>
-                    <path d="M12.5,50L6.25,31.25h6.25L25,43.75h25L31.25,6.25h6.25l31.25,37.5h12.5c0,0,12.5,0,12.5,6.25s-12.5,6.25-12.5,6.25h-12.5   L37.5,93.75h-6.25L50,56.25H25l-12.5,12.5H6.25L12.5,50z" />
-                  </g>
-                </svg>
-
-                            <div class="right">
-                                <div class="ticket-label">Arriving</div>
-                                <div class="airport">{{ report.destination.code }}</div>
-                                <div class="city">{{ report.destination.name }}</div>
-                            </div>
-                        </div>
-                        <div class="row perforated normRow" id="test">
-                            khasjhdjagsjd gasjgdkasg <br> djahsdjasgdsagdhkghasgdhask <br> hdjashdjhasdhasjkgj
-                        </div>
-                        <div class="row normRow">
-                            <div>
-                                <div class="ticket-label">Passenger</div>
-                                <div class="col">Carlos Rodríguez</div>
-                            </div>
-
-                        </div>
-                        <div class="row normRow">
-                            <div class="col6">
-                                <div class="ticket-label">Outbound</div>
-                                <div>{{ report.outbound|date:'d/m/Y' }}</div>
-                            </div>
-                            <div class="col6">
-                                <div class="ticket-label">Inbound</div>
-                                <div>{{ report.inbound|date:'d/m/Y' }}</div>
-                            </div>
-                        </div>
-                        <div class="row normRow">
-
-                            <div class="col6">
-                                <div class="ticket-label">Recommendation</div>
-                                {{ recommendation|safe }}
-                            </div>
-                            <div class="col6">
-                                <div class="ticket-label">Price Trend</div>
-                                {{ price_trend|safe }}
-                            </div>
-
-
-                        </div>
-                        <div class="row ticket-pricing" onclick="location.href='{{ pricing_option.deeplink }}';" style="cursor: pointer;">
-                                <div class="col6">
-                                    <div class="ticket-label">From:</div>
-                                    <b>{{ pricing_option.price|floatformat:2 }}€</b>
-                                </div>
-                                <div class="col6 right" style="padding-right: 30px">
-                                    <div>BOOK NOW </div>
-                                    <div class="ticket-label">{{ pricing_option.get_agent }}</div>
-                                </div>
-                                <i class="icon md-arrow-right arrow-icon"></i>
-                            </div>
+                        <div class="col-lg-6">
+                    <div id="ticket">
+                <div class="row perforated first">
+                    <img class="logo"
+                         src="{{ carrier.image }}"/>
+                    <div class="right">
+                        <div class="ticket-label">{{ carrier.name }}</div>
+                        <div class="num">{{ carrier.code }}</div>
                     </div>
-                                    <div id="ticket" class="back">
-                        <div class="row perforated first">
-                            <img class="logo"
-                                 src="{{ carrier.image }}"/>
-                            <div class="right">
-                                <div class="ticket-label">{{ carrier.name }}</div>
-                                <div class="num">{{ carrier.code }}</div>
-                            </div>
-                        </div>
-                        <div class="row perforated destinations" id="destination">
-                            <div class="left">
-                                <div class="ticket-label">Departing</div>
-                                <div class="airport">{{ report.origin.code }}</div>
-                                <div class="city">{{ report.origin.name }}</div>
-                            </div>
-
-                            <svg id="plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
-                  <g>
-                    <path d="M12.5,50L6.25,31.25h6.25L25,43.75h25L31.25,6.25h6.25l31.25,37.5h12.5c0,0,12.5,0,12.5,6.25s-12.5,6.25-12.5,6.25h-12.5   L37.5,93.75h-6.25L50,56.25H25l-12.5,12.5H6.25L12.5,50z" />
-                  </g>
-                </svg>
-
-                            <div class="right">
-                                <div class="ticket-label">Arriving</div>
-                                <div class="airport">{{ report.destination.code }}</div>
-                                <div class="city">{{ report.destination.name }}</div>
-                            </div>
-                        </div>
-                        <div class="row perforated normRow" id="test">
-                            khasjhdjagsjd gasjgdkasg <br> djahsdjasgdsagdhkghasgdhask <br> hdjashdjhasdhasjkgj
-                        </div>
-                        <div class="row normRow">
-                            <div>
-                                <div class="ticket-label">Passenger</div>
-                                <div class="col">Carlos Rodríguez</div>
-                            </div>
-
-                        </div>
-                        <div class="row normRow">
-                            <div class="col6">
-                                <div class="ticket-label">Outbound</div>
-                                <div>{{ report.outbound|date:'d/m/Y' }}</div>
-                            </div>
-                            <div class="col6">
-                                <div class="ticket-label">Inbound</div>
-                                <div>{{ report.inbound|date:'d/m/Y' }}</div>
-                            </div>
-                        </div>
-                        <div class="row normRow">
-
-                            <div class="col6">
-                                <div class="ticket-label">Recommendation</div>
-                                {{ recommendation|safe }}
-                            </div>
-                            <div class="col6">
-                                <div class="ticket-label">Price Trend</div>
-                                {{ price_trend|safe }}
-                            </div>
-
-
-                        </div>
-                        <div class="row ticket-pricing" onclick="location.href='{{ pricing_option.deeplink }}';" style="cursor: pointer;">
-                                <div class="col6">
-                                    <div class="ticket-label">From:</div>
-                                    <b>{{ pricing_option.price|floatformat:2 }}€</b>
-                                </div>
-                                <div class="col6 right" style="padding-right: 30px">
-                                    <div>BOOK NOW </div>
-                                    <div class="ticket-label">{{ pricing_option.get_agent }}</div>
-                                </div>
-                                <i class="icon md-arrow-right arrow-icon"></i>
-                            </div>
                 </div>
-                                </div>
-                            </div>
+                <div class="row perforated destinations" id="destination">
+                    <div class="left">
+                        <div class="ticket-label">Departing</div>
+                        <div class="airport">{{ report.origin.code }}</div>
+                        <div class="city">{{ report.origin.name }}</div>
+                    </div>
+
+                    <svg id="plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
+          <g>
+            <path d="M12.5,50L6.25,31.25h6.25L25,43.75h25L31.25,6.25h6.25l31.25,37.5h12.5c0,0,12.5,0,12.5,6.25s-12.5,6.25-12.5,6.25h-12.5   L37.5,93.75h-6.25L50,56.25H25l-12.5,12.5H6.25L12.5,50z" />
+          </g>
+        </svg>
+
+                    <div class="right">
+                        <div class="ticket-label">Arriving</div>
+                        <div class="airport">{{ report.destination.code }}</div>
+                        <div class="city">{{ report.destination.name }}</div>
+                    </div>
+                </div>
+                <div class="row normRow">
+                    <div>
+                        <div class="ticket-label">Passenger</div>
+                        <div class="col">Carlos Rodríguez</div>
+                    </div>
+
+                </div>
+                <div class="row normRow">
+                    <div class="col6">
+                        <div class="ticket-label">Outbound</div>
+                        <div>{{ report.outbound|date:'d/m/Y' }}</div>
+                    </div>
+                    <div class="col6">
+                        <div class="ticket-label">Inbound</div>
+                        <div>{{ report.inbound|date:'d/m/Y' }}</div>
+                    </div>
+                </div>
+                <div class="row normRow">
+
+                    <div class="col6">
+                        <div class="ticket-label">Recommendation</div>
+                        {{ recommendation|safe }}
+                    </div>
+                    <div class="col6">
+                        <div class="ticket-label">Price Trend</div>
+                        {{ price_trend|safe }}
+                    </div>
+
+
+                </div>
+                <div class="row ticket-pricing" onclick="location.href='{{ pricing_option.deeplink }}';" style="cursor: pointer;">
+                        <div class="col6">
+                            <div class="ticket-label">From:</div>
+                            <b>{{ pricing_option.price|floatformat:2 }}€</b>
+                        </div>
+                        <div class="col6 right" style="padding-right: 30px">
+                            <div>BOOK NOW </div>
+                            <div class="ticket-label">{{ pricing_option.get_agent }}</div>
+                        </div>
+                        <i class="icon md-arrow-right arrow-icon"></i>
+                    </div>
+            </div>
+                </div>
                         {% endboardingpass %}
                 {% endfor %}
             </div>
