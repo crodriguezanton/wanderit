@@ -27,4 +27,4 @@ install:
   - pip install mysql-python
 
 script:
-  - python manage.py runserver
+  - python manage.py migrate
