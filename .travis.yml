@@ -22,6 +22,9 @@ before_install:
 install:
   - pip install -r requirements.txt
   - pip install django==$DJANGO --quiet
+  - sudo apt-get install python-mysqldb
+  - sudo apt-get install build-essential python-dev libmysqlclient-dev
+  - pip install mysql-python
 
 script:
   - python manage.py runserver
