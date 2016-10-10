@@ -23,8 +23,5 @@ install:
   - pip install -r requirements.txt
   - pip install django==$DJANGO --quiet
 
-before_script:
-  - cp ~/builds/crodriguezanton/wanderit/wanderit/production_settings.py ~/builds/crodriguezanton/wanderit/wanderit/settings.py
-
 script:
   - python manage.py runserver
