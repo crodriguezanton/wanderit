@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from searchreports.models import Report
 
 
-class HomeView(ListView, LoginRequiredMixin):
+class HomeView(LoginRequiredMixin, ListView):
     template_name = 'main/home.html'
     model = Report
 

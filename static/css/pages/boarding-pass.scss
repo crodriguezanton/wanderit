@@ -164,6 +164,10 @@ svg#plane {
   border-top-right-radius: 0;
 }
 
+#destination:hover > #test {
+  background-color: blue;
+}
+
 // ----- Mobile styles -----
 @media only screen
   and (max-device-width: 736px) {
