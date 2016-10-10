@@ -188,11 +188,6 @@ svg#plane {
     transform: rotateY(180deg);
 }
 
-/*.flip-container, .front, .back {
-	width: 320px;
-	height: 480px;
-}*/
-
 /* flip speed goes here */
 .flipper {
 	transition: 0.6s;
@@ -204,10 +199,6 @@ svg#plane {
 /* hide back of pane during swap */
 .front, .back {
 	backface-visibility: hidden;
-
-	position: absolute;
-	top: 0;
-	left: 0;
 }
 
 /* front pane, placed above back */
