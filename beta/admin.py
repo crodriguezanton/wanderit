@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from beta.models import BetaCode
+
+admin.site.register(BetaCode)
