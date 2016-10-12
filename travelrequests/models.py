@@ -52,6 +52,22 @@ class SearchRequest(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
 
+        if self.cron is None:
+            self.cron = FlightSearchCronJob.objects.get_or_create(
+                origin = self.origin.code + '-sky',
+                destination = self.origin.code + '-sky',
+                outbound = self.outbound,
+                inbound = self.inbound
+            )[0]
+
+        if self.report is None:
+            self.report = Report.objects.get_or_create(
+                origin = self.origin,
+                destination = self.destination,
+                outbound=self.outbound,
+                inbound=self.inbound
+            )[0]
+
         super(SearchRequest, self).save(force_insert=force_insert, force_update=force_update, using=using,
                                            update_fields=update_fields)
 
@@ -66,6 +82,11 @@ class UserRequestMatch(models.Model):
              update_fields=None):
 
         if self.search_request is None:
-            pass
+            self.search_request = SearchRequest.objects.get_or_create(
+                origin = self.destination_request.wiuser.origin,
+                destination = self.destination_request.destination,
+                outbound = self.dates_request.start_date,
+                inbound = self.dates_request.end_date,
+            )[0]
 
         super(UserRequestMatch, self).save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)

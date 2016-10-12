@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.timezone import now
 from django_extensions.db.models import TimeStampedModel
 
+from searchreports.models import SearchReport
 from skyscannerSDK.utils import SearchErrorException, search_flights
 
 from cron.constants import CRONJOB_TYPE_CHOICES, PRIORITY, TIME_UNITS
@@ -42,6 +43,7 @@ class FlightSearchCronJob(CronJob):
 
         try:
             fs = search_flights(self.origin, self.destination, self.outbound, self.inbound, self.passengers)
+            SearchReport.generate(fs)
             log.message = fs.__unicode__()
             log.success = True
             log.end = now()
