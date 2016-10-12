@@ -12,6 +12,16 @@ class UserDestinationRequest(TimeStampedModel):
     destination = models.ForeignKey(Place)
     max_price = models.FloatField(null=True, blank=True)
 
+    def save(self, **kwargs):
+        super(UserDestinationRequest, self).save(**kwargs)
+        dates_requests = UserDatesRequest.objects.filter(wiuser=self.wiuser)
+        for request in dates_requests:
+            UserRequestMatch.objects.get_or_create(
+                wiuser = self.wiuser,
+                destination_request = self,
+                dates_request = request
+            )
+
 
 class UserDatesRequest(TimeStampedModel):
     wiuser = models.ForeignKey(WanderitUser)
@@ -19,6 +29,16 @@ class UserDatesRequest(TimeStampedModel):
     end_date = models.DateField()
     min_nights = models.IntegerField()
     max_nights = models.IntegerField()
+
+    def save(self, **kwargs):
+        super(UserDatesRequest, self).save(**kwargs)
+        destination_requests = UserDestinationRequest.objects.filter(wiuser=self.wiuser)
+        for request in destination_requests:
+            UserRequestMatch.objects.get_or_create(
+                wiuser=self.wiuser,
+                destination_request=request,
+                dates_request=self
+            )
 
 
 class SearchRequest(models.Model):
@@ -29,9 +49,23 @@ class SearchRequest(models.Model):
     report = models.OneToOneField(Report, null=True)
     cron = models.OneToOneField(FlightSearchCronJob)
 
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+
+        super(SearchRequest, self).save(force_insert=force_insert, force_update=force_update, using=using,
+                                           update_fields=update_fields)
+
 
 class UserRequestMatch(models.Model):
     wiuser = models.ForeignKey(WanderitUser, null=True)
-    destination_request = models.ForeignKey(UserDestinationRequest)
-    dates_request = models.ForeignKey(UserDatesRequest)
+    destination_request = models.ForeignKey(UserDestinationRequest, on_delete=models.CASCADE)
+    dates_request = models.ForeignKey(UserDatesRequest, on_delete=models.CASCADE)
     search_request = models.ForeignKey(SearchRequest, null=True)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+
+        if self.search_request is None:
+            pass
+
+        super(UserRequestMatch, self).save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)
