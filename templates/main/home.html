@@ -31,8 +31,8 @@
               <tbody>
               {% for destination in destinations %}
                 <tr>
-                  <td>{{ destination.destination.code }}</td>
-                  <td>{{ destination.destination.name }}</td>
+                  <td style="vertical-align: middle"><b>{{ destination.destination.code }}</b></td>
+                  <td style="vertical-align: middle">{{ destination.destination.name }}</td>
                     <td style="text-align: right">
                         <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
                     </td>
@@ -51,12 +51,14 @@
             </div>
             <table class="table table-hover">
               <tbody>
+              {% for date in dates %}
                 <tr>
-                  <td>08/12/2016 - 11/12/2016</td>
+                  <td style="vertical-align: middle">{{ date.start_date|date:"d/m/Y" }} - {{ date.end_date|date:"d/m/Y" }}</td>
                     <td style="text-align: right">
                         <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
                     </td>
                 </tr>
+              {% endfor %}
                 <tr>
                   <td>28/01/2017 - 03/02/2017</td>
                     <td style="text-align: right">
