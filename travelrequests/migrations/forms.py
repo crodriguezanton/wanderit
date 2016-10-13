@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from models import Place
+from skyscannerSDK.models import Place
 from travelrequests.models import UserDestinationRequest
 
 
