@@ -1,6 +1,6 @@
 from django.views.generic import CreateView
 
-from travelrequests.migrations.forms import UserDestinationRequestForm
+from travelrequests.forms import UserDestinationRequestForm
 from travelrequests.models import UserDatesRequest, UserDestinationRequest
 
 
