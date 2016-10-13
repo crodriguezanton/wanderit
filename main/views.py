@@ -15,8 +15,6 @@ class HomeView(LoginRequiredMixin, ListView):
 
         context['destinations'] = self.request.user.wanderituser.userdestinationrequest_set.all()
         context['dates'] = self.request.user.wanderituser.userdatesrequest_set.all()
-        context['carriers'] = Carrier.objects.all()
-
 
         return context
 
