@@ -60,7 +60,7 @@ class SearchRequest(models.Model):
                 inbound = self.inbound
             )[0]
 
-            if not hasattr(self, 'report'):
+        if not hasattr(self, 'report'):
             self.report = Report.objects.get_or_create(
                 origin = self.origin,
                 destination = self.destination,
