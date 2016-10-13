@@ -154,6 +154,9 @@
                 {% endfor %}
             </div>
         </div>
+    {% for carrier in carriers %}
+        <img src="{{ carrier.image }}">
+    {% endfor %}
     </div>
 {% endblock %}
 {% block extra_js %}

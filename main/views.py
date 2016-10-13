@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
+from skyscannerSDK.models import Carrier
 
 from searchreports.models import Report
 
@@ -14,6 +15,8 @@ class HomeView(LoginRequiredMixin, ListView):
 
         context['destinations'] = self.request.user.wanderituser.userdestinationrequest_set.all()
         context['dates'] = self.request.user.wanderituser.userdatesrequest_set.all()
+        context['carriers'] = Carrier.objects.all()
+
 
         return context
 
