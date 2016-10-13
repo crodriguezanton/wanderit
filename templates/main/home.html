@@ -40,7 +40,7 @@
               {% endfor %}
               </tbody>
             </table>
-                <div class="panel-footer add-panel" onclick="location.href='#';" style="cursor: pointer;">
+                <div class="panel-footer add-panel" onclick="destination();" style="cursor: pointer;">
                         Add new
             </div>
           </div>
@@ -61,7 +61,7 @@
               {% endfor %}
               </tbody>
             </table>
-                <div class="panel-footer add-panel" onclick="location.href='#';" style="cursor: pointer;">
+                <div class="panel-footer add-panel" onclick="dates();" style="cursor: pointer;">
                         Add new
             </div>
           </div>
@@ -155,4 +155,21 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block extra_js %}
+     <script>
+        function destination() {
+            $.slidePanel.show({
+              url: '{% url 'destination-add' %}',
+              target: $(this)
+            });
+        }
+
+         function dates() {
+            $.slidePanel.show({
+              url: '{% url 'dates-add' %}',
+              target: $(this)
+            });
+        }
+    </script>
 {% endblock %}

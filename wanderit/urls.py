@@ -18,6 +18,7 @@ from django.contrib import admin
 
 from main.views import HomeView
 from searchreports.views import ReportDetailView, SearchReportDetailView
+from travelrequests.views import UserDestinationRequestCreateView, UserDatesRequestCreateView
 
 urlpatterns = [
     url(r'^$', HomeView.as_view()),
@@ -27,4 +28,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^report/(?P<pk>\d+)/$', ReportDetailView.as_view()),
     url(r'^searchreport/(?P<pk>\d+)/$', SearchReportDetailView.as_view()),
+    url(r'^destination/add/$', UserDestinationRequestCreateView.as_view(), name='destination-add'),
+    url(r'^dates/add/$', UserDatesRequestCreateView.as_view(), name='dates-add'),
 ]
