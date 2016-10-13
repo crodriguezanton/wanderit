@@ -52,7 +52,7 @@ class SearchRequest(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
 
-        if not hasattr(self, 'cron'):
+        if self.cron is None:
             self.cron = FlightSearchCronJob.objects.get_or_create(
                 origin = self.origin.code,
                 destination = self.destination.code,
@@ -60,7 +60,7 @@ class SearchRequest(models.Model):
                 inbound = self.inbound
             )[0]
 
-        if not hasattr(self, 'report'):
+        if self.report is None:
             self.report = Report.objects.get_or_create(
                 origin = self.origin,
                 destination = self.destination,
