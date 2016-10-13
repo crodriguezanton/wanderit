@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'o&t(0tj@ecx-!v@oga1v1k@lk#3yh&9pm6fs)_rcv_21g*1%!m'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -72,10 +70,10 @@ ROOT_URLCONF = 'wanderit.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'BACKEND':  'django.template.backends.django.DjangoTemplates',
+        'DIRS':     [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
-        'OPTIONS': {
+        'OPTIONS':  {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -88,7 +86,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wanderit.wsgi.application'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -107,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -132,8 +128,21 @@ AUTHENTICATION_BACKENDS = (
 
 )
 
-
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+SOCIALACCOUNT_QUERY_EMAIL = True
+OPEN_FOR_SIGNUP = False
+ACCOUNT_ADAPTER = 'main.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'main.adapters.SocialAccountAdapter'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google':
+        {
+            'SCOPE':       ['profile', 'email'],
+            'AUTH_PARAMS': {
+                'access_type': 'online'
+            }
+        }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -152,7 +161,6 @@ LANGUAGES = [
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
