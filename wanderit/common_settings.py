@@ -130,7 +130,7 @@ AUTHENTICATION_BACKENDS = (
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 SOCIALACCOUNT_QUERY_EMAIL = True
-OPEN_FOR_SIGNUP = False
+OPEN_FOR_SIGNUP = True
 ACCOUNT_ADAPTER = 'main.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'main.adapters.SocialAccountAdapter'
 
