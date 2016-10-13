@@ -12,4 +12,10 @@ class HomeView(LoginRequiredMixin, ListView):
 
         context = super(HomeView, self).get_context_data(**kwargs)
 
+        context['destinations'] = self.request.user.wiuser.userdestinationrequest_set.all()
+        context['dates'] = self.request.user.wiuser.userdatesrequest_set.all()
+
         return context
+
+    def get_queryset(self):
+        return self.model.objects.filter(searchrequest__userrequestmatch__wiuser__user=self.request.user).exclude(searchreport=None)

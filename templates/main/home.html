@@ -29,34 +29,15 @@
             <div class="panel cities-panel">
             <table class="table table-hover">
               <tbody>
+              {% for destination in destinations %}
                 <tr>
-                  <td>AMS</td>
-                  <td>Amsterdam</td>
+                  <td>{{ destination.destination.code }}</td>
+                  <td>{{ destination.destination.name }}</td>
                     <td style="text-align: right">
                         <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
                     </td>
                 </tr>
-                <tr>
-                  <td>NYC</td>
-                  <td>New York</td>
-                    <td style="text-align: right">
-                        <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
-                    </td>
-                </tr>
-                <tr>
-                  <td>BUD</td>
-                  <td>Budapest</td>
-                    <td style="text-align: right">
-                        <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
-                    </td>
-                </tr>
-                <tr>
-                  <td>LON</td>
-                  <td>London</td>
-                    <td style="text-align: right">
-                        <a class="btn btn-pure btn-danger icon md-minus-circle-outline waves-effect waves-circle waves-classic" style="text-decoration: none" data-toggle="tooltip" data-placement="right" data-original-title="Delete"></a>
-                    </td>
-                </tr>
+              {% endfor %}
               </tbody>
             </table>
                 <div class="panel-footer add-panel" onclick="location.href='#';" style="cursor: pointer;">
