@@ -55,7 +55,7 @@ class SearchRequest(models.Model):
         if not hasattr(self, 'cron'):
             self.cron = FlightSearchCronJob.objects.get_or_create(
                 origin = self.origin.code,
-                destination = self.origin.code,
+                destination = self.destination.code,
                 outbound = self.outbound,
                 inbound = self.inbound
             )[0]
