@@ -27,8 +27,8 @@ class UserDatesRequest(TimeStampedModel):
     wiuser = models.ForeignKey(WanderitUser)
     start_date = models.DateField()
     end_date = models.DateField()
-    min_nights = models.IntegerField()
-    max_nights = models.IntegerField()
+    min_nights = models.IntegerField(default=0)
+    max_nights = models.IntegerField(default=0)
 
     def save(self, **kwargs):
         super(UserDatesRequest, self).save(**kwargs)
@@ -46,8 +46,8 @@ class SearchRequest(models.Model):
     destination = models.ForeignKey(Place, related_name='destination_city_request')
     outbound = models.DateField()
     inbound = models.DateField()
-    report = models.OneToOneField(Report, null=True)
-    cron = models.OneToOneField(FlightSearchCronJob)
+    report = models.OneToOneField(Report, null=True, blank=True)
+    cron = models.OneToOneField(FlightSearchCronJob, null=True, blank=True)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
