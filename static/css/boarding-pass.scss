@@ -2,6 +2,7 @@
   max-width: 350px;
   background: #fff;
   margin: 0 auto 30px;
+  border-radius: 10px;
   padding: 0px 15px;
   &:after {
     content: '';
@@ -33,6 +34,8 @@
 }
 .logo{
   height: 40px;
+  border-radius: 10px;
+  margin-top: -4px;
 }
 .row {
   position: relative;
@@ -74,7 +77,6 @@ svg#plane {
   left: 50%;
   margin-left: -15px;
   margin-top: 15px;
-  opacity: 0.5;
   display: inline-block;
 }
 .smalltext{
@@ -121,6 +123,8 @@ svg#plane {
   margin-top: 15px;
   position: relative;
   color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   -webkit-transition: background 0.5s linear, color 0.5s linear;
   -moz-transition: background 0.5s linear, color 0.5s linear;
   -ms-transition: background 0.5s linear, color 0.5s linear;
