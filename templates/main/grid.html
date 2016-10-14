@@ -225,49 +225,25 @@
                                 <input type="text" id="range" name="range" value="">
                             </div>
                             <div class="filter_type">
-                                <h6>Review score</h6>
+                                <h6>Destinations</h6>
                                 <ul>
+                                    {% for destination in destinations %}
                                     <li>
-                                        <label>Superb: 9+ (77)</label>
+                                        <label>{{ destination.name }}</label>
                                         <input type="checkbox" class="js-switch" checked>
                                     </li>
-                                    <li>
-                                        <label>Very good: 8+ (552)</label>
-                                        <input type="checkbox" class="js-switch">
-                                    </li>
-                                    <li>
-                                        <label>Good: 7+ (909)</label>
-                                        <input type="checkbox" class="js-switch">
-                                    </li>
-                                    <li>
-                                        <label>Pleasant: 6+ (1196)</label>
-                                        <input type="checkbox" class="js-switch">
-                                    </li>
-                                    <li>
-                                        <label>No rating (198)</label>
-                                        <input type="checkbox" class="js-switch">
-                                    </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <div class="filter_type">
-                                <h6>Type</h6>
+                                <h6>Dates</h6>
                                 <ul>
+                                    {% for date in dates %}
                                     <li>
-                                        <label>Historic (77)</label>
+                                        <label>{{ date.start_date|date:"d/m/Y" }} - {{ date.end_date|date:"d/m/Y" }}</label>
                                         <input type="checkbox" class="js-switch" checked>
                                     </li>
-                                    <li>
-                                        <label>Monumets (552)</label>
-                                        <input type="checkbox" class="js-switch">
-                                    </li>
-                                    <li>
-                                        <label>Interesting (909)</label>
-                                        <input type="checkbox" class="js-switch">
-                                    </li>
-                                    <li>
-                                        <label>Architectural (1196)</label>
-                                        <input type="checkbox" class="js-switch">
-                                    </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
