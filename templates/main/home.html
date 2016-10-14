@@ -105,6 +105,7 @@
     });
 
     var destinations = [];
+    var dates = [];
 
     $('.js-switch').change(function() {
             var destination = $(this).attr("id-destination");
@@ -112,12 +113,31 @@
             var inbound = $(this).attr("id-inbound");
 
             if (destination != null) {
-                $('[destination="'+destination+'"]').parent().toggle('slow');
 
                 if ($(this).is(':checked')){
+                    $('[destination="'+destination+'"]').each( function (i) {
+                        date = {$(i).attr("outbound"), $(i).attr("inbound")};
+                        if (dates.indexOf(date) == -1) {
+                            $(i).parent().show('slow');
+                        }
+                    });
                     destinations.splice(destinations.indexOf(destination), 1);
                 } else {
-                     destinations.push(destination);
+                    $('[destination="'+destination+'"]').parent().hide('slow');
+                    destinations.push(destination);
+                }
+            } else if (outbound != null && inbound != null) {
+                if ($(this).is(':checked')){
+                    $('[outbound="'+outbound+'" inbound="'+inbound+'"]:').each( function (i) {
+                        destination = $(i).attr("destination");
+                        if (destinations.indexOf(destination) == -1) {
+                            $(i).parent().show('slow');
+                        }
+                    });
+                    dates.splice(dates.indexOf({outbound, inbound}), 1);
+                } else {
+                    $('[outbound="'+outbound+'" inbound="'+inbound+'"]:').parent().hide('slow');
+                    dates.push({outbound, inbound});
                 }
             }
 
