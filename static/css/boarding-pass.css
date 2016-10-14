@@ -35,12 +35,12 @@
   border-radius: 5px;
   margin-top: -4px; }
 
-.row {
+.ticket .row {
   position: relative;
   padding: 20px; }
-  .row.perforated {
+  .ticket .row.perforated {
     border-bottom: 1px dashed #ddd; }
-  .row.destinations:after, .row.normRow:after {
+  .ticket .row.destinations:after, .ticket .row.normRow:after {
     content: '';
     clear: both;
     display: block; }
