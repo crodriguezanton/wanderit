@@ -21,17 +21,19 @@
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    border: 1px solid #ededed;
+
     bottom: 0;
     margin-bottom: -10px;
   }
   &:before {
     left: 0;
     margin-left: -10px;
+    border-right: 1px solid #ededed;
   }
   &:after {
     right: 0;
     margin-right: -10px;
+    border-left: 1px solid #ededed;
   }
 }
 .logo{
