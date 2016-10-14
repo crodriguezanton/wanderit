@@ -116,9 +116,9 @@
 
                 if ($(this).is(':checked')){
                     $('[destination="'+destination+'"]').each( function (i) {
-                        date = {out:$(i).attr("outbound"), inb:$(i).attr("inbound")};
+                        date = $(this).attr("outbound")+$(this).attr("inbound");
                         if (dates.indexOf(date) == -1) {
-                            $(i).parent().show('slow');
+                            $(this).parent().show('slow');
                         }
                     });
                     destinations.splice(destinations.indexOf(destination), 1);
@@ -129,15 +129,15 @@
             } else if (outbound != null && inbound != null) {
                 if ($(this).is(':checked')){
                     $('[outbound="'+outbound+'"][inbound="'+inbound+'"]').each( function (i) {
-                        destination = $(i).attr("destination");
+                        destination = $(this).attr("destination");
                         if (destinations.indexOf(destination) == -1) {
-                            $(i).parent().show('slow');
+                            $(this).parent().show('slow');
                         }
                     });
-                    dates.splice(dates.indexOf({out:outbound, inb:inbound}), 1);
+                    dates.splice(dates.indexOf(outbound+inbound), 1);
                 } else {
                     $('[outbound="'+outbound+'"][inbound="'+inbound+'"]').parent().hide('slow');
-                    dates.push({out:outbound, inb:inbound});
+                    dates.push(outbound+inbound);
                 }
             }
 
