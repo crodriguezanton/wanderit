@@ -11,15 +11,12 @@ class AccountAdapter(DefaultAccountAdapter):
         user = super(AccountAdapter, self).save_user(request, user, form, commit=commit)
         wiuser = WanderitUser.objects.create(user=user)
 
-
-    @staticmethod
     def is_open_for_signup(self, request):
         return settings.OPEN_FOR_SIGNUP
 
 
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
 
-    @staticmethod
     def is_open_for_signup(self, request, sociallogin):
         return settings.OPEN_FOR_SIGNUP
 
