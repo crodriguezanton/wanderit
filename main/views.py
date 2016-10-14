@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from skyscannerSDK.models import Carrier
 
 from searchreports.models import Report
@@ -20,3 +20,7 @@ class HomeView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return self.model.objects.filter(searchrequest__userrequestmatch__wiuser__user=self.request.user).exclude(searchreport=None)
+
+
+class ComingSoonView(TemplateView):
+    template_name = 'coming_soon.html'
