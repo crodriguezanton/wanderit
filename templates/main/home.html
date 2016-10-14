@@ -4,8 +4,7 @@
     <link rel="stylesheet" href="/static/css/boarding-pass.css">
 {% endblock %}
 {% block content %}
-        <div class="col-lg-9">
-            <h2 style="text-align: center; padding-top: 0px;"><i class="icon md-flight-takeoff" aria-hidden="true"></i> Your future boarding passes</h2>
+        <div class="col-lg-9 col-lg-pull-3">
             <div class="row">
                     {% for report in report_list %}
                         {% boardingpass report %}
