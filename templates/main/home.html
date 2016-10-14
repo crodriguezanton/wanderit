@@ -115,7 +115,7 @@
                 $('[destination="'+destination+'"]').parent().toggle('slow');
 
                 if ($(this).is(':checked')){
-                    destinations.pop(destinations.indexOf(destination));
+                    destinations.splice(destinations.indexOf(destination), 1);
                 } else {
                      destinations.push(destination);
                 }
