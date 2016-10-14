@@ -46,10 +46,11 @@
             <div class="row">
 						<div class="col-md-6 col-md-offset-3">
                         <div id="newsletter_wp" >
-                            <form method="post" action="/static/assets/newsletter.php" id="newsletter" name="newsletter" autocomplete="off">
+                            <form method="post" action="/" id="newsletter" name="newsletter" autocomplete="off">
+                                {% csrf_token %}
                                         <div class="row">
                                             <div class="col-md-9 first-nogutter">
-                                                <input name="email_newsletter" id="email_newsletter" type="email" placeholder="Your Email" class="form-control">
+                                                <input name="email" id="email_newsletter" type="email" placeholder="Your Email" class="form-control">
                                             </div>
                                             <div class="col-md-3 nogutter">
                                                     <button type="submit" class="btn-check" id="submit-newsletter">Get Access</button>
