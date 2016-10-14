@@ -107,9 +107,9 @@
 
 
     $('.js-switch').change(function() {
-            var destination = $(this).attr("destination");
-            var outbound = $(this).attr("outbound");
-            var inbound = $(this).attr("inbound");
+            var destination = $(this).attr("id-destination");
+            var outbound = $(this).attr("id-outbound");
+            var inbound = $(this).attr("id-inbound");
 
             if (destination != null) {
                 $('[destination="'+destination+'"]').parent().toggle('slow');
