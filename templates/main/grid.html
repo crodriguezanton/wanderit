@@ -11,11 +11,11 @@
     <title>Wanderit</title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="/static/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/static/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/static/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/static/img/apple-touch-icon-144x144-precomposed.png">
 
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300" rel="stylesheet" type="text/css">
@@ -29,11 +29,9 @@
 
     <!-- SPECIFIC CSS -->
     <link href="/static/css/ion.rangeSlider.min.css" rel="stylesheet">
-    
+
     <!-- YOUR CUSTOM CSS -->
     <link href="/static/css/custom.css" rel="stylesheet">
-    <link href="/static/css/font-awesome.min.css" rel="stylesheet" >
-    <link rel="stylesheet" href="/static/fonts/material-design/material-design.min.css">
     {% block extra_css %}{% endblock %}
 
     <!--[if lt IE 9]>
@@ -57,9 +55,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col--md-4 col-sm-3 col-xs-4">
-                    <a href="index.html" id="logo"><img src="/static/img/Wanderit-white.png" height="30" alt="" data-retina="true">
+                    <a href="/" id="logo"><img src="/static/img/Wanderit-white.png" height="30" alt="" data-retina="true">
                     </a>
-                </div><nav class="col--md-8 col-sm-9 col-xs-8">
+                </div>
+                 <nav class="col--md-8 col-sm-9 col-xs-8">
                     <ul id="primary_nav">
                         <li id="wishlist"><a href="/accounts/signup">Sign Up</a>
                         </li>
@@ -104,69 +103,85 @@
                                     <li><a href="index_6.html">Home version 2</a>
                                     </li>
                                 </ul>
-                                </li>
-                                <li class="submenu">
-                                    <a href="javascript:void(0);" class="show-submenu">Florence travel guides<i class="icon-down-open-mini"></i></a>
-                                    <ul>
-                                        <li><a href="florence-must-see-grid.html">Must see</a>
-                                        </li>
-                                        <li><a href="florence-events-grid.html">Events</a>
-                                        </li>
-                                        <li><a href="florence-hotels-grid.html">Hotels</a>
-                                        </li>
-                                        <li><a href="florence-restaurants-grid.html">Restaurants</a>
-                                        </li>
-                                        <li><a href="florence-bars-grid.html">Cocktails Bars</a>
-                                        </li>
-                                        <li><a href="florence-shops-grid.html">Shops</a>
-                                        </li>
-                                        <li><a href="florence-transports.html">Transports</a>
-                                        </li>
-                                        <li><a href="faq.html">Info&amp;Faqs</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About us</a>
-                                </li>
-                                <li><a href="faq.html">Faq</a>
-                                </li>
-                                <li><a href="blog.html">Blog</a>
-                                </li>
-                                <li><a href="contacts.html">Contacts</a>
-                                </li>
-                                <li class="submenu">
-                                    <a href="javascript:void(0);" class="show-submenu">Pages &amp; elements<i class="icon-down-open-mini"></i></a>
-                                    <ul>
-                                        <li><a href="coming_soon/index.html">Site launch/Coming soon</a>
-                                        </li>
-                                        <li><a href="florence-audio-guides.html">Audio guides page</a>
-                                        </li>
-                                        <li><a href="full_screen_map.html">Full screen map</a>
-                                        </li>
-                                        <li><a href="gallery-3-columns.html">Gallery 3 columns</a>
-                                        </li>
-                                        <li><a href="gallery-4-columns.html">Gallery 4 columns</a>
-                                        </li>
-                                        <li><a href="subscribe.html">Subscribe plan</a>
-                                        </li>
-                                        <li><a href="subscribe-working.html">Subscribe plan working</a>
-                                        </li>
-                                        <li><a href="florence-must-see-list.html">List page</a>
-                                        </li>
-                                        <li><a href="florence-must-see-grid.html">Grid page</a>
-                                        </li>
-                                        <li><a href="florence-must-see-map-listing.html">Map list page</a>
-                                        </li>
-                                        <li><a href="icon_pack_1.html"><i class="icon-inbox-alt"></i> Icon pack 1</a>
-                                        </li>
-                                        <li><a href="icon_pack_2.html"><i class="icon-inbox-alt"></i> Icon pack 2</a>
-                                        </li>
-                                        <li><a href="icon_pack_3.html"><i class="icon-inbox-alt"></i> Icon pack 3</a>
-                                        </li>
-                                        <li><a href="shortcodes.html"><i class="icon-tools"></i> Shortcodes</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Florence travel guides<i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="florence-must-see-grid.html">Must see</a>
+                                    </li>
+                                    <li><a href="florence-events-grid.html">Events</a>
+                                    </li>
+                                    <li><a href="florence-hotels-grid.html">Hotels</a>
+                                    </li>
+                                    <li><a href="florence-restaurants-grid.html">Restaurants</a>
+                                    </li>
+                                    <li><a href="florence-bars-grid.html">Cocktails Bars</a>
+                                    </li>
+                                    <li><a href="florence-shops-grid.html">Shops</a>
+                                    </li>
+                                    <li><a href="florence-transports.html">Transports</a>
+                                    </li>
+                                    <li><a href="faq.html">Info&amp;Faqs</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="megamenu submenu">
+                                <a href="javascript:void(0);" class="show-submenu-mega">Pages &amp; elements<i class="icon-down-open-mini"></i></a>
+                                <div class="menu-wrapper">
+                                    <div class="col-md-4">
+                                        <h3>Pages</h3>
+                                        <ul>
+                                            <li><a href="about.html">About us</a>
+                                            </li>
+                                            <li><a href="blog.html">Blog</a>
+                                            </li>
+                                            <li><a href="faq.html">Faq</a>
+                                            </li>
+                                            <li><a href="contacts.html">Contacts</a>
+                                            </li>
+                                            <li><a href="coming_soon/index.html">Site launch/Coming soon</a>
+                                            </li>
+                                            <li><a href="florence-audio-guides.html">Audio guides page</a>
+                                            </li>
+                                             <li><a href="full_screen_map.html">Full screen map</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h3>Pages</h3>
+                                        <ul>
+                                            <li><a href="gallery-3-columns.html">Gallery 3 columns</a>
+                                            </li>
+                                            <li><a href="gallery-4-columns.html">Gallery 4 columns</a>
+                                            </li>
+                                            <li><a href="subscribe.html">Subscribe plan</a>
+                                            </li>
+                                            <li><a href="subscribe-working.html">Subscribe plan working</a>
+                                            </li>
+                                            <li><a href="florence-must-see-list.html">List page</a>
+                                            </li>
+                                            <li><a href="florence-must-see-grid.html">Grid page</a>
+                                            </li>
+                                            <li><a href="florence-must-see-map-listing.html">Map list page</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h3>Elements</h3>
+                                        <ul>
+                                            <li><a href="icon_pack_1.html"><i class="icon-inbox-alt"></i> Icon pack 1</a>
+                                            </li>
+                                            <li><a href="icon_pack_2.html"><i class="icon-inbox-alt"></i> Icon pack 2</a>
+                                            </li>
+                                            <li><a href="icon_pack_3.html"><i class="icon-inbox-alt"></i> Icon pack 3</a>
+                                            </li>
+                                            <li><a href="shortcodes.html"><i class="icon-tools"></i> Shortcodes</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End menu-wrapper -->
+                            </li>
                         </ul>
                     </div>
                     <!-- End main-menu -->
@@ -179,7 +194,7 @@
     <!-- End Header =============================================== -->
 
     <!-- SubHeader =============================================== -->
-    <section class="parallax_window_in" data-parallax="scroll" data-image-src="https://i.ytimg.com/vi/ANxvQHuW9S8/maxresdefault.jpg" >
+    <section class="parallax_window_in" data-parallax="scroll" data-image-src="https://i.ytimg.com/vi/ANxvQHuW9S8/maxresdefault.jpg">
         <div id="sub_content_in">
             <h1>Your Search Results</h1>
             <p>
@@ -190,7 +205,7 @@
     </section>
     <!-- End section -->
     <!-- End SubHeader ============================================ -->
-
+    
     <div id="position">
         <div class="container">
             <ul>

@@ -1,8 +1,13 @@
 /* ====================================================================================================
-MENU
+	MINIMAL CSS3 MENU
 ==================================================================================================== */
+
+header{
+	padding:15px 10px 0 10px;
+}
+
 /* Primary menu */
-ul#primary_nav {margin:0; padding:0; list-style:none; float:right; margin-right:50px;}
+ul#primary_nav {margin:0; padding:0; list-style:none; float:right;}
 ul#primary_nav li {display:inline-block; padding-left:15px;}
 ul#primary_nav li a {color:#fff; opacity:1;}
 ul#primary_nav li a:hover{opacity:0.6;}
@@ -75,7 +80,8 @@ ul#primary_nav li#buy a{
 	right:-25px;
 }
 
-.main-menu {position: relative;z-index:9;width:auto; float:right;margin: 0;padding: 0;}
+
+.main-menu {position: relative;z-index:9;width:auto; float:right;margin: 3px 0 0 0;padding: 0;}
 .main-menu a {-webkit-transition:all 0.3s;-moz-transition:all 0.3s;transition:all 0.3s;}
 .main-menu ul,
 .main-menu ul li,
@@ -85,17 +91,68 @@ ul#primary_nav li#buy a{
 .main-menu ul li a {display: block;padding:10px;}
 			
 /*First level styles */			
-.main-menu > ul > li > a {color: #fff; padding: 2px 10px 15px  10px; font-size:14px; margin:0; font-weight:500;}
+.main-menu > ul > li > a {color: #fff; padding: 2px 10px 20px  10px; font-size:14px; margin:0; font-weight:500;}
 
 /* Opacity mask when left open */
-.layer {display: none; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 100; min-height: 100%; background-color: #000; opacity: 0;}
-.layer-is-visible {display: block;-webkit-animation: fade-in-layer .6s;-moz-animation: fade-in-layer .6s;-ms-animation: fade-in-layer .6s; -o-animation: fade-in-layer .6s;animation: fade-in-layer .6s;opacity: 0.5;}
+.layer {display: none; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 100; min-height: 100%; background-color: #000; opacity: 0; z-index:9;}
+.layer-is-visible {display: block;-webkit-animation: fade-in-layer .3s;-moz-animation: fade-in-layer .3s;-ms-animation: fade-in-layer .3s; -o-animation: fade-in-layer .3s;animation: fade-in-layer .3s;opacity: 0.5;}
 
 #close_in,#header_menu, .cmn-toggle-switch{display:none;}	
 
 a.dropdown-toggle.icon-search{display: inline-block;}	
 
+/* IE9 fix that affect the pages with parallax header (ex.single_hotel.html); Issue: submenu disappear when move the cursor to the submenu (only if you did not scroll the page) */
 .ie9 a.show-submenu, .ie9 a.show-submenu-mega{ background:url(../img/fix_ie_9_menu.png);}
+		
+/* All styles for screen size over 992px
+================================================== */
+@media only screen and (min-width: 992px) {
+
+.main-menu {width: auto;}
+.main-menu a {white-space: nowrap;}	
+.main-menu ul li {display: inline-block;}
+
+.main-menu ul li.submenu:hover > a:before,
+.main-menu ul li.submenu:hover > a:after {bottom: -20px;opacity: 0;}
+		
+/* Submenu */
+.main-menu ul ul,
+.main-menu ul .menu-wrapper {position: absolute;display: none;z-index: 1;height: auto;left: 3px;top: 100%;margin: 0;padding: 0;background: #fff;min-width:180px;-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);box-shadow: 0 6px 12px rgba(0, 0, 0, .175); }
+
+
+/* Arrows top */
+.main-menu ul ul:before{bottom: 100%;left: 15%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none;border-bottom-color: #fff;border-width: 7px;margin-left: -7px;}
+
+.main-menu ul .menu-wrapper ul {-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border-top: none; margin:0; padding:0;}
+.main-menu ul .menu-wrapper ul:before{border:0;}
+
+.main-menu ul li:hover > ul,
+.main-menu ul li:hover > .menu-wrapper {display:block;padding: 0;}
+.main-menu ul ul li {display: block;height: auto;padding: 0;}		
+.main-menu ul ul li a {font-size: 13px;color: #666;border-bottom:1px solid #ededed;display: block;}
+.main-menu ul ul li:last-child a {border-bottom:none;}
+
+.main-menu ul ul li:hover > a {background-color:#f9f9f9;color:#ec008c; padding-left:15px;}
+
+/* Megamenu */
+.main-menu ul li.megamenu {position:static}
+.main-menu ul li.megamenu .menu-wrapper {position: absolute;top: 100%;width:970px;left:-65%;padding:10px 15px 0 15px;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.main-menu ul .menu-wrapper h3 {font-size: 13px;text-transform:uppercase;border-bottom:2px solid #ededed;padding-bottom:10px;margin-bottom:0; font-family: "proxima_novasemibold", Arial, Helvetica, sans-serif;}
+
+.main-menu ul .menu-wrapper ul {position: relative;display:block;}
+.main-menu ul .menu-wrapper ul {margin-bottom:15px;left: 0;}
+
+a#search_bt span{ display:none;}
+	
+}
+
+
+@media only screen and (max-width: 991px) {
+	
+header{padding:15px;}
+
+/* Primary menu */
+ul#primary_nav {margin-right:50px;}
 	
 #header_menu{text-align:center;padding:25px 15px 25px 15px;position:relative;display:block; background-color:#f0f0f0;}
 
@@ -128,11 +185,10 @@ a.show-submenu-mega:focus{color:#ec008c !important;background-color:#f9f9f9;}
 
 
 /* Menu mobile left panel */	
-.main-menu {overflow: auto;left: -100%;bottom: 0;width: 300px;height: 100%;opacity: 0;position:fixed;background-color:#fff;
--webkit-transition:	left 0.6s, opacity 0.5s;
--moz-transition:	left 0.6s, opacity 0.5s;
-transition:left 0.6s, opacity 0.5s; 
-z-index:9999;
+.main-menu {overflow: auto;left: -100%;bottom: 0;width: 45%;height: 100%;opacity: 0;position:fixed;background-color:#fff;
+-webkit-transition:	left 0.8s, opacity 0.5s;
+-moz-transition:	left 0.8s, opacity 0.5s;
+transition:left 0.8s, opacity 0.5s; z-index:9999;
 -webkit-box-shadow: 1px 0px 5px 0px rgba(50, 50, 50, 0.55);
 -moz-box-shadow:    1px 0px 5px 0px rgba(50, 50, 50, 0.55);
 box-shadow:         1px 0px 5px 0px rgba(50, 50, 50, 0.55);}
@@ -150,7 +206,7 @@ a.show-submenu-mega + .menu-wrapper.show_mega,
   overflow: visible;
   position:absolute; 
   top:5px;
-  right:20px;
+  right:15px;
   margin: 0;
   padding: 0;
   width: 30px;
@@ -186,8 +242,11 @@ a.show-submenu-mega + .menu-wrapper.show_mega,
 .cmn-toggle-switch__htx.active span::before,
 .cmn-toggle-switch__htx.active span::after {-webkit-transition-delay: 0, 0.3s;transition-delay: 0, 0.3s;}
 
+}
 @media only screen and (max-width: 768px) {
-	ul#primary_nav li{ padding-left:8px;}
+	
+	header{padding:10px;}
+	ul#primary_nav li{ padding-left:8px; margin-top:2px}
 	ul#primary_nav li#first_link , ul#primary_nav li#buy {display:none;}
 	ul#primary_nav li#wishlist a, ul#primary_nav li#login a{
 	width:18px;
@@ -208,8 +267,8 @@ ul#primary_nav li#wishlist a:before, ul#primary_nav li#login a:before{
 }
 ul#primary_nav li#wishlist a:before{content: "\eeab"; font-weight:bold;}
 ul#primary_nav li#login a:before{content: "\e9d1";}
-	
-}
+
+}	
 @media only screen and (max-width: 600px) {
 .main-menu {width: 100%;}
 a#close_in {display:block;position:absolute;right:15px;top:10px;width:20px;height:20px;}
