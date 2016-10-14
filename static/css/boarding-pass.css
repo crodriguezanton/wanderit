@@ -88,9 +88,16 @@ svg#plane {
 
 .col4 {
   float: left;
-  width: 33.3%;
+  width: 40%;
   font-size: 21px;
   line-height: 1.5; }
+
+.col8 {
+  float: left;
+  width: 60%;
+  font-size: 21px;
+  line-height: 1.5;
+}
 
 .col {
   font-size: 21px; }
