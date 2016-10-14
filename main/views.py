@@ -1,4 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, CreateView
 
 from beta.form import BetaForm
@@ -27,3 +30,4 @@ class HomeView(LoginRequiredMixin, ListView):
 class ComingSoonView(CreateView):
     template_name = 'coming_soon.html'
     form_class = BetaForm
+    success_url = '/'

@@ -17,6 +17,7 @@ import debug_toolbar
 from django.conf.urls import url, include
 from django.contrib import admin
 
+import main
 from main.views import HomeView, ComingSoonView
 from searchreports.views import ReportDetailView, SearchReportDetailView
 from travelrequests.views import UserDestinationRequestCreateView, UserDatesRequestCreateView
