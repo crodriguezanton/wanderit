@@ -128,7 +128,7 @@
                 }
             } else if (outbound != null && inbound != null) {
                 if ($(this).is(':checked')){
-                    $('[outbound="'+outbound+'" inbound="'+inbound+'"]:').each( function (i) {
+                    $('[outbound="'+outbound+'"][inbound="'+inbound+'"]:').each( function (i) {
                         destination = $(i).attr("destination");
                         if (destinations.indexOf(destination) == -1) {
                             $(i).parent().show('slow');
@@ -136,7 +136,7 @@
                     });
                     dates.splice(dates.indexOf({out:outbound, inb:inbound}), 1);
                 } else {
-                    $('[outbound="'+outbound+'" inbound="'+inbound+'"]:').parent().hide('slow');
+                    $('[outbound="'+outbound+'"][inbound="'+inbound+'"]:').parent().hide('slow');
                     dates.push({out:outbound, inb:inbound});
                 }
             }
