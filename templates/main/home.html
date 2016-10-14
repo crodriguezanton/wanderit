@@ -37,21 +37,20 @@
                         <div class="city">{{ report.destination.name }}</div>
                     </div>
                 </div>
-                <div class="row normRow">
-                    <div>
-                        <div class="ticket-label">Passenger</div>
-                        <div class="col">{{ user.get_full_name }}</div>
-                    </div>
-
-                </div>
-                <div class="row normRow">
+                <div class="row perforated">
                     <div class="col6">
                         <div class="ticket-label">Outbound</div>
                         <div>{{ report.outbound|date:'d/m/Y' }}</div>
+                        <div class="col4" style="font-size: 16px;"><i class="md-flight-takeoff"></i> {{ itinerary.outbound_leg.departure|time:'H:i' }}</div>
+                        <div class="col4" style="font-size: 16px;"><i class="md-flight-land"></i> {{ itinerary.outbound_leg.arrival|time:'H:i' }}</div>
+                        <div style="font-size: 14px">Direct</div>
                     </div>
                     <div class="col6">
                         <div class="ticket-label">Inbound</div>
                         <div>{{ report.inbound|date:'d/m/Y' }}</div>
+                        <div class="col4" style="font-size: 16px;"><i class="md-flight-takeoff"></i> {{ itinerary.inbound_leg.departure|time:'H:i' }}</div>
+                        <div class="col4" style="font-size: 16px;"><i class="md-flight-land"></i> {{ itinerary.inbound_leg.arrival|time:'H:i' }}</div>
+                        <div style="font-size: 14px">Direct</div>
                     </div>
                 </div>
                 <div class="row normRow">

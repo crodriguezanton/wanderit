@@ -93,6 +93,12 @@ svg#plane {
   font-size: 21px;
   line-height: 1.5;
 }
+.col4 {
+  float: left;
+  width: 40%;
+  font-size: 21px;
+  line-height: 1.5;
+}
 .col {
   font-size: 21px;
 }
@@ -142,6 +148,11 @@ svg#plane {
 
 .ticket-pricing:hover .ticket-label {
   color: white;
+}
+
+.small-label {
+  font-size: 16px;
+  color: #757575;
 }
 
 .arrow-icon {

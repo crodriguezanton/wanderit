@@ -23,6 +23,7 @@ class WithNode(Node):
         context['recommendation'] = report.get_recommendation_html()
         context['price_trend'] = report.get_price_trend_html()
         context['pricing_option'] = report.get_pricing_option()
+        context['itinerary'] = report.get_lastest_min_price_itinerary()
         context['color'] = context['carrier'].get_hex_color()
         context['text_color'] = context['carrier'].get_text_color()
 

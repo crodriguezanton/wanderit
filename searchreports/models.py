@@ -22,11 +22,14 @@ class Report(models.Model):
             inbound=flight_search.inbound
         )[0]
 
+    def get_lastest_min_price_itinerary(self):
+        return self.searchreport_set.all().order_by('-flight_search__created').first().min_price_itinerary
+
     def get_carrier(self):
-        return self.searchreport_set.all().order_by('-flight_search__created').first().min_price_itinerary.outbound_leg.carriers.all().first()
+        return self.get_lastest_min_price_itinerary().outbound_leg.carriers.all().first()
 
     def get_pricing_option(self):
-        return self.searchreport_set.all().order_by('-flight_search__created').first().min_price_itinerary.pricingoption_set.all().order_by('price').first()
+        return self.get_lastest_min_price_itinerary().pricingoption_set.all().order_by('price').first()
 
     def get_price_trend(self):
         dummyreports = list(self.searchreport_set.all().order_by('-flight_search__created').values_list('pk', flat=True))[:2]
