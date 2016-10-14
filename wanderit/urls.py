@@ -24,6 +24,7 @@ from travelrequests.views import UserDestinationRequestCreateView, UserDatesRequ
 
 urlpatterns = [
     url(r'^$', ComingSoonView.as_view()),
+    url(r'^home/$', HomeView.as_view()),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
