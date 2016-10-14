@@ -9,7 +9,7 @@
                     {% for report in report_list %}
                         {% boardingpass report %}
                         <div class="col-md-6">
-                    <div id="ticket" ticketid="ticket-{{ report.pk }}" origin="{{ report.origin.code }}" destination="{{ report.destination.code }}" price="{{ pricing_option.price }}" outbound="{{ report.outbound|date:'d/m/Y' }}" inbound="{{ report.inbound|date:'d/m/Y' }}">
+                    <div id="ticket" ticketid="{{ report.pk }}" origin="{{ report.origin.code }}" destination="{{ report.destination.code }}" price="{{ pricing_option.price }}" outbound="{{ report.outbound|date:'d/m/Y' }}" inbound="{{ report.inbound|date:'d/m/Y' }}">
                 <div class="row perforated first">
                     <img class="logo"
                          src="{{ carrier.image }}"/>
@@ -102,6 +102,19 @@
 
      $(".ticket-pricing").hover(function(e) {
         $(this).css("background-color",e.type === "mouseenter"?$(this).attr('color'):"#9e9e9e")
-    })
+    });
+
+
+
+    $('.js-switch').change(function() {
+            var destination = $(this).attr("destination");
+            var outbound = $(this).attr("outbound");
+            var inbound = $(this).attr("inbound");
+
+            if (destination != null) {
+                $('[destination="'+destination+'"]').parent().toggle('slow');
+            }
+    });
+
     </script>
 {% endblock %}

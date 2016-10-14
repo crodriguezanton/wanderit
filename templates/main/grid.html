@@ -248,7 +248,7 @@
                                     {% for destination in destinations %}
                                     <li>
                                         <label>{{ destination.destination.name }}</label>
-                                        <input type="checkbox" class="js-switch" checked>
+                                        <input destination="{{ destination.destination.code }}" type="checkbox" class="js-switch" checked>
                                     </li>
                                     {% endfor %}
                                 </ul>
@@ -259,7 +259,7 @@
                                     {% for date in dates %}
                                     <li>
                                         <label>{{ date.start_date|date:"d/m/Y" }} - {{ date.end_date|date:"d/m/Y" }}</label>
-                                        <input type="checkbox" class="js-switch" checked>
+                                        <input outbound="{{ date.start_date|date:"d/m/Y" }}" inbound="{{ date.end_date|date:"d/m/Y" }}" type="checkbox" class="js-switch" checked>
                                     </li>
                                     {% endfor %}
                                 </ul>
