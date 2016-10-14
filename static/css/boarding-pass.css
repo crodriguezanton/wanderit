@@ -19,15 +19,16 @@
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  border: 1px solid #ededed;
   bottom: 0;
   margin-bottom: -10px; }
 #ticket > .row:first-child:before {
   left: 0;
-  margin-left: -10px; }
+  margin-left: -10px;
+  border-right: 1px solid #ededed; }
 #ticket > .row:first-child:after {
   right: 0;
-  margin-right: -10px; }
+  margin-right: -10px;
+  border-left: 1px solid #ededed; }
 
 .logo {
   height: 40px;
