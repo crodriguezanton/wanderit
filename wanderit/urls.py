@@ -16,12 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from main.views import HomeView
+from main.views import HomeView, ComingSoonView
 from searchreports.views import ReportDetailView, SearchReportDetailView
 from travelrequests.views import UserDestinationRequestCreateView, UserDatesRequestCreateView
 
 urlpatterns = [
-    url(r'^$', HomeView.as_view()),
+    url(r'^$', ComingSoonView.as_view()),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
