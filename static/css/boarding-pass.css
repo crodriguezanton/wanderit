@@ -2,7 +2,8 @@
   max-width: 350px;
   background: #fff;
   margin: 0 auto 30px;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 1px solid #ededed;
   padding: 0px 15px; }
   #ticket:after {
     content: '';
@@ -18,6 +19,7 @@
   width: 20px;
   height: 20px;
   border-radius: 100%;
+  border: 1px solid #ededed;
   bottom: 0;
   margin-bottom: -10px; }
 #ticket > .row:first-child:before {
@@ -29,7 +31,7 @@
 
 .logo {
   height: 40px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: -4px; }
 
 .row {
@@ -114,8 +116,8 @@ svg#plane {
   margin-top: 15px;
   position: relative;
   color: white;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   -webkit-transition: background 0.5s linear, color 0.5s linear;
   -moz-transition: background 0.5s linear, color 0.5s linear;
   -ms-transition: background 0.5s linear, color 0.5s linear;
