@@ -159,14 +159,14 @@
         function checkDestination(ticket) {
             destination = $(ticket).attr('destination');
 
-            return destinations.indexOf(destination) != -1;
+            return destinations.indexOf(destination) == -1;
         }
 
         function checkDates(ticket) {
             var outbound = $(ticket).attr("outbound");
             var inbound = $(ticket).attr("inbound");
 
-            return dates.indexOf(outbound + inbound) != -1
+            return dates.indexOf(outbound + inbound) == -1
         }
 
         function checkPrice(ticket) {
