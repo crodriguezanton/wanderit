@@ -143,15 +143,17 @@
         });
 
         function updateTickets() {
-            $('#ticket').each(checkTicket(this));
+            $('#ticket').each(function(){
+                if (checkDestination(this) && checkPrice(this) && checkPrice(this)) {
+                $(this).parent().show('slow');
+            } else {
+                $(this).parent().hide('slow');
+            }
+            });
         }
 
         function checkTicket(ticket) {
-            if (checkDestination(ticket) && checkPrice(ticket) && checkPrice(ticket)) {
-                $(ticket).parent().show('slow');
-            } else {
-                $(ticket).parent().hide('slow');
-            }
+
         }
 
         function checkDestination(ticket) {
