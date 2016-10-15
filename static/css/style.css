@@ -1019,23 +1019,23 @@ a#filters_col_bt:before{
 	text-align:center;
 	color:#999;
 }
-#filter_tools ul li a#grid_icon:before, #filter_tools ul li a#list_icon:before, #filter_tools ul li a#map_icon:before{
+#filter_tools ul li a#dates_icon:before, #filter_tools ul li a#dest_icon:before, #filter_tools ul li a#map_icon:before{
 	display:block;
 	font-size:24px;
 	color:#1aa79b;
-	font-family: "ElegantIcons";
+	font-family: FontAwesome;
 }
-#filter_tools ul li a#grid_icon:hover:before, #filter_tools ul li a#list_icon:hover:before, #filter_tools ul li a#map_icon:hover:before{
+#filter_tools ul li a#dates_icon:hover:before, #filter_tools ul li a#dest_icon:hover:before, #filter_tools ul li a#map_icon:hover:before{
 	color:#ed145b;
 }
-#filter_tools ul li a#grid_icon:before{
-  	content: "\e025";
+#filter_tools ul li a#dest_icon:before{
+  	content: "\f124";
 }
-#filter_tools ul li a#list_icon:before{
-  	content: "\64";
+#filter_tools ul li a#dates_icon:before{
+  	content: "\f073";
 }
 #filter_tools ul li a#map_icon:before{
-  	content: "\e01d";
+  	content: "\f278";
 }
 .img_wrapper{
 	background-color:#000;
