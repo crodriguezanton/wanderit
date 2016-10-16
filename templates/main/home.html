@@ -97,19 +97,6 @@
 {% endblock %}
 {% block extra_js %}
     <script>
-        function destination() {
-            $.slidePanel.show({
-                url: '{% url 'destination-add' %}',
-                target: $(this)
-            });
-        }
-
-        function dates() {
-            $.slidePanel.show({
-                url: '{% url 'dates-add' %}',
-                target: $(this)
-            });
-        }
 
         $(".ticket-pricing").hover(function (e) {
             $(this).css("background-color", e.type === "mouseenter" ? $(this).attr('color') : "#9e9e9e")
@@ -143,7 +130,7 @@
         });
 
         function updateTickets() {
-            $('#ticket').each(function(){
+            $('.ticket').each(function(){
                 if (checkDestination(this) && checkPrice(this) && checkPrice(this)) {
                 $(this).parent().show('slow');
             } else {
