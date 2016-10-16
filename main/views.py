@@ -23,7 +23,7 @@ class HomeView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return self.model.objects.filter(searchrequest__userrequestmatch__wiuser__user=self.request.user).exclude(
-            searchreport=None)
+            searchreport=None).order_by('last_search_report__min_price')
 
 
 class ComingSoonView(CreateView):
