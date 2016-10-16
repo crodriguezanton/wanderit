@@ -9,7 +9,7 @@
             {% for report in report_list %}
                 {% boardingpass report %}
                     <div class="col-md-6">
-                        <div id="ticket" ticketid="{{ report.pk }}" origin="{{ report.origin.code }}"
+                        <div class="ticket" ticketid="{{ report.pk }}" origin="{{ report.origin.code }}"
                              destination="{{ report.destination.code }}" price="{{ pricing_option.price }}"
                              outbound="{{ report.outbound|date:'d/m/Y' }}" inbound="{{ report.inbound|date:'d/m/Y' }}">
                             <div class="row perforated first">
