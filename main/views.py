@@ -41,6 +41,9 @@ class LandingView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(LandingView, self).get_context_data(**kwargs)
 
-        context['top_cities'] = Place.objects.filter(type__name='City').annotate(Count('userdestinationrequest')).order_by('-userdestinationrequest__count')[:3]
+        top_cities = Place.objects.filter(type__name='City').annotate(Count('userdestinationrequest')).order_by('-userdestinationrequest__count')
+
+        context['top_cities'] = top_cities[:3]
+        context['featured'] = top_cities[3:6]
 
         return context

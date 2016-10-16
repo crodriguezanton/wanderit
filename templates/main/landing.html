@@ -81,11 +81,11 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="florence-must-see-detail.html">
-                                <img src="{{ city.photo }}" width="800" height="480" class="img-responsive" alt="">
+                                <img src="{{ city.photo }}" width="800" height="480" class="img-responsive" alt="" style="height: 430px;">
                                 <div class="short_info_grid">
                                     <small><strong>{{ city.code }}</strong></small>
                                     <h3>{{ city.name }}</h3>
-                                    <em>Test</em>
+                                    <em>{{ city.get_parent.name }}</em>
                                     <p>
                                         Add destination
                                     </p>
@@ -118,11 +118,11 @@
                         <!-- End tools i-->
                         <div class="img_container_grid">
                             <a href="florence-must-see-detail.html">
-                                <img src="{{ city.photo }}" width="800" height="468" class="img-responsive" alt="">
+                                <img src="{{ city.photo }}" width="800" height="468" class="img-responsive" alt="" style="height: 200px;">
                                 <div class="short_info_grid">
                                     <small><strong>{{ city.code }}</strong></small>
                                     <h3>{{ city.name }}</h3>
-                                    <em>Test</em>
+                                    <em>{{ city.get_parent.name }}</em>
                                     <p>
                                         Add Destination
                                     </p>
@@ -137,9 +137,10 @@
             </div>
             <!-- End row -->
             <div class="row">
+                {% for city in featured %}
                 <div class="col-md-4">
                     <div class="img_wrapper_grid">
-                        <div class="ribbon top">
+                        <div class="ribbon">
                             <span>Featured</span>
                         </div>
                         <div class="tools_i">
@@ -158,14 +159,14 @@
                         </div>
                         <!-- End tools i-->
                         <div class="img_container_grid">
-                            <a href="florence-restaurant-detail.html">
-                                <img src="/static/img/grid_home_4.jpg" width="800" height="468" class="img-responsive" alt="">
+                            <a href="florence-must-see-detail.html">
+                                <img src="{{ city.photo }}" width="800" height="468" class="img-responsive" alt="" style="height: 200px;">
                                 <div class="short_info_grid">
-                                    <small><strong>From 30$</strong></small>
-                                    <h3>Da Domenico</h3>
-                                    <em>Restaurant</em>
+                                    <small><strong>{{ city.code }}</strong></small>
+                                    <h3>{{ city.name }}</h3>
+                                    <em>{{ city.get_parent.name }}</em>
                                     <p>
-                                        Read more
+                                        Add Destination
                                     </p>
                                 </div>
                             </a>
@@ -173,77 +174,7 @@
                     </div>
                     <!-- End img_wrapper_grid -->
                 </div>
-                <div class="col-md-4">
-                    <div class="img_wrapper_grid">
-                        <div class="ribbon top">
-                            <span>Featured</span>
-                        </div>
-                        <div class="tools_i">
-                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
-                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
-                                <button type="submit" class="tooltip_styled tooltip-effect-4">
-                                    <span class="tooltip-item"></span>
-                                    <span class="tooltip-content">Directions</span>
-                                </button>
-                            </form>
-                            <div class="wishlist">
-                                <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
-                                <div class="tooltip-content">Bookmark</div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- End tools i-->
-                        <div class="img_container_grid">
-                            <a href="florence-bar-detail.html">
-                                <img src="/static/img/grid_home_5.jpg" width="800" height="468" class="img-responsive" alt="">
-                                <div class="short_info_grid">
-                                    <small><strong>From 20$</strong></small>
-                                    <h3>La Grotta Pub</h3>
-                                    <em>Bar - Pun</em>
-                                    <p>
-                                        Read more
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End img_wrapper_grid -->
-                </div>
-                <div class="col-md-4">
-                    <div class="img_wrapper_grid">
-                        <div class="ribbon top">
-                            <span>Featured</span>
-                        </div>
-                        <div class="tools_i">
-                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
-                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
-                                <button type="submit" class="tooltip_styled tooltip-effect-4">
-                                    <span class="tooltip-item"></span>
-                                    <span class="tooltip-content">Directions</span>
-                                </button>
-                            </form>
-                            <div class="wishlist">
-                                <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
-                                <div class="tooltip-content">Bookmark</div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- End tools i-->
-                        <div class="img_container_grid">
-                            <a href="florence-shop-detail.html">
-                                <img src="/static/img/grid_home_6.jpg" width="800" height="468" class="img-responsive" alt="">
-                                <div class="short_info_grid">
-                                    <h3>Shopping Mall</h3>
-                                    <em>Shop</em>
-                                    <p>
-                                        Read more
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End img_wrapper_grid -->
-                </div>
+                {% endfor %}
             </div>
             <!-- End row -->
         </div>
