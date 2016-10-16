@@ -145,7 +145,7 @@
     <div class="container margin_60_30">
         <div class="row">
 
-            <aside class="col-md-3 col-md-push-9" id="sidebar">
+            <aside class="col-md-3" id="sidebar">
                 <div class="theiaStickySidebar">
                     <div id="filter_tools">
                         <ul>
@@ -359,6 +359,8 @@
             additionalMarginTop: 80
         });
 
+        var rangedata;
+
         $("#range").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
@@ -369,7 +371,23 @@
             type: 'double',
             step: 1,
             postfix: "€",
-            grid: false
+            grid: false,
+            onStart: function (data) {
+                console.log(data);
+                rangedata = data;
+            },
+            onChange: : function (data) {
+                console.log(data);
+                rangedata = data;
+            },
+            onFinish: : function (data) {
+                console.log(data);
+                rangedata = data;
+            },
+            onUpdate: : function (data) {
+                console.log(data);
+                rangedata = data;
+            }
         });
 
         $('.carousel').owlCarousel({
