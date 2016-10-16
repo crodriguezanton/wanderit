@@ -1,17 +1,17 @@
-#ticket {
+.ticket {
   max-width: 350px;
   background: #fff;
   margin: 0 auto 30px;
   border-radius: 5px;
   border: 1px solid #ededed;
   padding: 0px 15px; }
-  #ticket:after {
+  .ticket:after {
     content: '';
     display: block;
     position: relative;
     clear: both; }
 
-#ticket > .row:first-child:before, #ticket > .row:first-child:after {
+.ticket > .row:first-child:before, .ticket > .row:first-child:after {
   background-color: #f3f4f5;
   position: absolute;
   content: '';
@@ -21,11 +21,11 @@
   border-radius: 100%;
   bottom: 0;
   margin-bottom: -10px; }
-#ticket > .row:first-child:before {
+.ticket > .row:first-child:before {
   left: 0;
   margin-left: -10px;
   border-right: 1px solid #ededed; }
-#ticket > .row:first-child:after {
+.ticket > .row:first-child:after {
   right: 0;
   margin-right: -10px;
   border-left: 1px solid #ededed; }
@@ -35,12 +35,12 @@
   border-radius: 5px;
   margin-top: -4px; }
 
-#ticket .row {
+.ticket .row {
   position: relative;
   padding: 20px; }
-  #ticket .row.perforated {
+  .ticket .row.perforated {
     border-bottom: 1px dashed #ddd; }
-  #ticket .row.destinations:after, #ticket .row.normRow:after {
+  .ticket .row.destinations:after, .ticket .row.normRow:after {
     content: '';
     clear: both;
     display: block; }
@@ -91,13 +91,6 @@ svg#plane {
   width: 40%;
   font-size: 21px;
   line-height: 1.5; }
-
-.col8 {
-  float: left;
-  width: 60%;
-  font-size: 21px;
-  line-height: 1.5;
-}
 
 .col {
   font-size: 21px; }
