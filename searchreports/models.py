@@ -95,8 +95,7 @@ class SearchReport(models.Model):
             mean_price=flight_search.get_mean_price()
         )
 
-        report.last_search_report = search_report
-        report.save()
+        report.update_last_search_report()
 
         ReportUpdate.generate(search_report)
 

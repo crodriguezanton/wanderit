@@ -17,7 +17,7 @@ class HomeView(LoginRequiredMixin, ListView):
         context['destinations'] = self.request.user.wanderituser.userdestinationrequest_set.all().order_by(
             'destination__name')
         context['dates'] = self.request.user.wanderituser.userdatesrequest_set.filter(
-            start_date=datetime.today()).order_by('start_date')
+            start_date__gt=datetime.today()).order_by('start_date')
 
         return context
 
