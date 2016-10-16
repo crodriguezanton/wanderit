@@ -1,0 +1,731 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+    <link href="/static/css/layerslider.min.css" rel="stylesheet">
+{% endblock %}
+{% block page %}
+  <!-- Slider -->
+    <div id="full-slider-wrapper">
+        <div id="layerslider" style="width:100%;height:667px;">
+            <!-- first slide -->
+            <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
+                <img src="/static/img/slides/slide_1.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
+                <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">The most important info<br>
+                on your Mobile during a visit</h3>
+                <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
+                    Museum Guides / Directions / Tips&amp;info
+                </p>
+            </div>
+            <!-- second slide -->
+            <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:85;">
+                <img src="/static/img/slides/slide_2.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
+                <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Find easily<br>
+                interesting place close to you</h3>
+                <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
+                    Get Directions / Must see places / Eat&amp;Drink
+                </p>
+            </div>
+            <!-- third slide -->
+            <div class="ls-slide" data-ls="slidedelay:5000; transition2d:103;">
+                <img src="/static/img/slides/slide_3.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
+                <h3 class="ls-l slide_typo" style="top: 48%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Discover fantastic places</h3>
+                <p class="ls-l slide_typo_2" style="top:54%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
+                    We offer a variety of services and options
+                </p>
+            </div>
+            <div id="search_bar">
+                <form>
+                    <div id="custom-search-input">
+                        <input type="text" class=" search-query" placeholder="Search....">
+                        <input type="submit" class="btn_search" value="submit">
+                    </div>
+                </form>
+            </div>
+            <!-- End search_bar -->
+        </div>
+    </div>
+    <!-- End layerslider -->
+
+    <div class="pattern_dots fix_mobile">
+        <div class="container margin_60_45">
+            <div class="main_title">
+                <h2><strong>Top Destinations</strong> in Wander<strong>it</strong></h2>
+                <p>
+                    Ne his postulant posidonium adversarium. Ius tollit tamquam indoctum ea, cu quo equidem perfecto adipiscing. Eu mel aliquid delenit. Recteque laboramus ea est, te qui eirmod similique.
+                </p>
+                <span><em></em></span>
+            </div>
+            <!-- End main_title -->
+
+            <div class="row">
+                {% for city in top_cities %}
+                    {% if forloop.first %}
+                <div class="col-md-8">
+                    <div class="img_wrapper_grid">
+                        <div class="ribbon">
+                            <span>TOP {{ forloop.counter }}</span>
+                        </div>
+                        <div class="tools_i">
+                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
+                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
+                                <button type="submit" class="tooltip_styled tooltip-effect-4">
+                                    <span class="tooltip-item"></span>
+                                    <span class="tooltip-content">Directions</span>
+                                </button>
+                            </form>
+                            <div class="wishlist">
+                                <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
+                                <div class="tooltip-content">Bookmark</div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End tools i-->
+                        <div class="img_container_grid">
+                            <a href="florence-must-see-detail.html">
+                                <img src="/static/img/grid_home_1.jpg" width="800" height="480" class="img-responsive" alt="">
+                                <div class="short_info_grid">
+                                    <small><strong>{{ city.code }}</strong></small>
+                                    <h3>{{ city.name }}</h3>
+                                    <em>Test</em>
+                                    <p>
+                                        Add destination
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End img_wrapper_grid -->
+                </div>
+                <div class="col-md-4">
+                {% else %}
+                    <div class="img_wrapper_grid">
+                        <div class="ribbon">
+                            <span>TOP {{ forloop.counter }}</span>
+                        </div>
+                        <div class="tools_i">
+                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
+                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
+                                <button type="submit" class="tooltip_styled tooltip-effect-4">
+                                    <span class="tooltip-item"></span>
+                                    <span class="tooltip-content">Directions</span>
+                                </button>
+                            </form>
+                            <div class="wishlist">
+                                <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
+                                <div class="tooltip-content">Bookmark</div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End tools i-->
+                        <div class="img_container_grid">
+                            <a href="florence-must-see-detail.html">
+                                <img src="/static/img/grid_home_3.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <div class="short_info_grid">
+                                    <small><strong>{{ city.code }}</strong></small>
+                                    <h3>{{ city.name }}</h3>
+                                    <em>Test</em>
+                                    <p>
+                                        Add Destination
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <!-- End img_wrapper_grid -->
+                {% endfor %}
+            </div>
+            </div>
+            <!-- End row -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="img_wrapper_grid">
+                        <div class="ribbon top">
+                            <span>Featured</span>
+                        </div>
+                        <div class="tools_i">
+                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
+                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
+                                <button type="submit" class="tooltip_styled tooltip-effect-4">
+                                    <span class="tooltip-item"></span>
+                                    <span class="tooltip-content">Directions</span>
+                                </button>
+                            </form>
+                            <div class="wishlist">
+                                <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
+                                <div class="tooltip-content">Bookmark</div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End tools i-->
+                        <div class="img_container_grid">
+                            <a href="florence-restaurant-detail.html">
+                                <img src="/static/img/grid_home_4.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <div class="short_info_grid">
+                                    <small><strong>From 30$</strong></small>
+                                    <h3>Da Domenico</h3>
+                                    <em>Restaurant</em>
+                                    <p>
+                                        Read more
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End img_wrapper_grid -->
+                </div>
+                <div class="col-md-4">
+                    <div class="img_wrapper_grid">
+                        <div class="ribbon top">
+                            <span>Featured</span>
+                        </div>
+                        <div class="tools_i">
+                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
+                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
+                                <button type="submit" class="tooltip_styled tooltip-effect-4">
+                                    <span class="tooltip-item"></span>
+                                    <span class="tooltip-content">Directions</span>
+                                </button>
+                            </form>
+                            <div class="wishlist">
+                                <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
+                                <div class="tooltip-content">Bookmark</div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End tools i-->
+                        <div class="img_container_grid">
+                            <a href="florence-bar-detail.html">
+                                <img src="/static/img/grid_home_5.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <div class="short_info_grid">
+                                    <small><strong>From 20$</strong></small>
+                                    <h3>La Grotta Pub</h3>
+                                    <em>Bar - Pun</em>
+                                    <p>
+                                        Read more
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End img_wrapper_grid -->
+                </div>
+                <div class="col-md-4">
+                    <div class="img_wrapper_grid">
+                        <div class="ribbon top">
+                            <span>Featured</span>
+                        </div>
+                        <div class="tools_i">
+                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
+                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
+                                <button type="submit" class="tooltip_styled tooltip-effect-4">
+                                    <span class="tooltip-item"></span>
+                                    <span class="tooltip-content">Directions</span>
+                                </button>
+                            </form>
+                            <div class="wishlist">
+                                <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
+                                <div class="tooltip-content">Bookmark</div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End tools i-->
+                        <div class="img_container_grid">
+                            <a href="florence-shop-detail.html">
+                                <img src="/static/img/grid_home_6.jpg" width="800" height="468" class="img-responsive" alt="">
+                                <div class="short_info_grid">
+                                    <h3>Shopping Mall</h3>
+                                    <em>Shop</em>
+                                    <p>
+                                        Read more
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End img_wrapper_grid -->
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- End container -->
+    </div>
+    <!-- End pattern dots -->
+
+     <div class="container margin_60_30">
+        <div class="main_title">
+            <h2><strong>Explore</strong> what's interesting</h2>
+            <p>
+                Ne his postulant posidonium adversarium. Ius tollit tamquam indoctum ea, cu quo equidem perfecto adipiscing. Eu mel aliquid delenit. Recteque laboramus ea est, te qui eirmod similique.
+            </p>
+            <span><em></em></span>
+        </div>
+
+        <div class="row box_cat">
+            <div class="col-md-3 col-sm-6">
+                <a href="florence-must-see-map-listing.html">
+                    <span>24</span>
+                    <i class=" icon_set_1_icon-1"></i>
+                    <h3>Must see</h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="florence-event-map-listing.html">
+                    <span>34</span>
+                    <i class="icon_set_1_icon-41"></i>
+                    <h3>Events</h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="florence-hotels-map-listing.html">
+                    <span>12</span>
+                    <i class="icon_set_1_icon-6"></i>
+                    <h3>Hotels </h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="florence-restaurants-map-listing.html">
+                    <span>43</span>
+                    <i class="icon_set_1_icon-58"></i>
+                    <h3>Restaurants</h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no
+                    </p>
+                </a>
+            </div>
+        </div>
+        <!-- End row -->
+
+        <div class="row box_cat">
+            <div class="col-md-3 col-sm-6">
+                <a href="florence-bars-map-listing.html">
+                    <span>24</span>
+                    <i class="icon_set_1_icon-20"></i>
+                    <h3>Cocktail Bars</h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no.
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="florence-shops-map-listing.html">
+                    <span>34</span>
+                    <i class="icon_set_1_icon-50"></i>
+                    <h3>Shops</h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="florence-transports.html">
+                    <span>43</span>
+                    <i class="icon_set_1_icon-25"></i>
+                    <h3>Transport</h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="faq.html">
+                    <span>12</span>
+                    <i class="icon_set_1_icon-54"></i>
+                    <h3>Info&amp;Faqs</h3>
+                    <p>
+                        Pri melius fuisset at, pro legimus corpora no
+                    </p>
+                </a>
+            </div>
+        </div>
+        <!-- End row -->
+    </div>
+    <!-- End container -->
+
+    <section class="bg_white margin_60_30">
+        <div class="container">
+            <div class="main_title">
+                <h3>Other <strong>Popular</strong> from TravelGuide</h3>
+                <p>
+                    Ne his postulant posidonium adversarium. Ius tollit tamquam indoctum ea, cu quo equidem perfecto adipiscing. Eu mel aliquid delenit. Recteque laboramus ea est, te qui eirmod similique.
+                </p>
+                <span><em></em></span>
+            </div>
+            <div id="tabs" class="tabs">
+                <nav>
+                    <ul>
+                        <li><a href="#section-1"><span>Suggested</span></a>
+                        </li>
+                        <li><a href="#section-2"><span>Top Viewed</span></a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <section id="section-1">
+                        <div class="row list_tabs">
+                            <div class="col-md-4 col-sm-4">
+                                <h2>Must see and Events</h2>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <a href="florence-must-see-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_1.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Michelangelo Sculpture</h3>
+                                                <small>Architectural Buildings</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-must-see-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_2.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Michelangelo Sculpture</h3>
+                                                <small>Museum - Attractions</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-event-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_3.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Museum Free Entrance</h3>
+                                                <small>Museums - Events</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-event-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_4.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Flea Market</h3>
+                                                <small>Attractions - Events</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h2>Eat and Drink</h2>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <a href="florence-restaurant-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_5.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Florence Pizza</h3>
+                                                <small>Pizza - Italian</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-restaurant-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_6.jpg" alt="" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Domenico</h3>
+                                                <small>International - Italian</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-bar-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_7.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3> Mojito Bar</h3>
+                                                <small>Cocktails Bar</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-bar-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_8.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Alfredo Pub</h3>
+                                                <small>Pub</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h2>Shops</h2>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <a href="florence-shop-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_9.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Louis Vuitton</h3>
+                                                <small>Men - Women</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-shop-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_10.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Shopping Mall</h3>
+                                                <small>Men - Children</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-shop-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_11.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Mario Shop</h3>
+                                                <small>Men - Women</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="section-2">
+                        <div class="row list_tabs">
+                            <div class="col-md-4 col-sm-4">
+                                <h2>Must see and Events</h2>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <a href="florence-must-see-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_12.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Michelangelo Sculpture</h3>
+                                                <small>Architectural Buildings</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-must-see-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_13.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Michelangelo Sculpture</h3>
+                                                <small>Museum - Attractions</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-event-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_14.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Museum Free Entrance</h3>
+                                                <small>Museums - Events</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-event-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_15.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Flea Market</h3>
+                                                <small>Attractions - Events</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h2>Eat and Drink</h2>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <a href="florence-restaurant-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_16.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Da Alfredo</h3>
+                                                <small>Pizza - Italian</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-restaurant-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_17.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>La Bruschetteria</h3>
+                                                <small>International - Italian</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-bar-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_18.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Domenico Bar</h3>
+                                                <small>Cocktails Bar</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-bar-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_19.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Francis Bar</h3>
+                                                <small>Pub</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <h2>Shops</h2>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <a href="florence-shop-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_20.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Florence Boutique</h3>
+                                                <small>Men - Women</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <a href="florence-shop-detail.html">
+                                                <figure><img src="/static/img/thumb_tabs_21.jpg" alt="thumb" class="img-rounded" width="60" height="60">
+                                                </figure>
+                                                <h3>Victoria Secrets</h3>
+                                                <small>Men - Children</small>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!--  End content -->
+            </div>
+            <!-- End tabs -->
+        </div>
+    </section>
+    <!--  End section white -->
+
+    <section class="parallax_window_home bright">
+        <div class="container">
+            <div class="main_title">
+                <h3>How TravelGuide <strong>Works</strong></h3>
+            </div>
+            <div class="row features add_bottom_45">
+                <div class="col-sm-4">
+                    <div id="feat_2">
+                        <a href="about.html" class="bt_info">Read more</a>
+                        <h3>Find places</h3>
+                        <p>
+                            The most interesting place close to you. Attractions, Museums, Restaurant...
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div id="feat_1">
+                        <a href="about.html" class="bt_info">Read more</a>
+                        <h3>Get info&amp;tips</h3>
+                        <p>
+                            The most important tips on your Mobile during a visit....online and offline.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div id="feat_3">
+                        <a href="about.html" class="bt_info">Read more</a>
+                        <h3>Read and listen</h3>
+                        <p>
+                            The most important info about a place reviewed by Quality Authors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End row -->
+        <div class="text-center">
+            <a href="#0" class="button_2">Start Explore</a>
+        </div>
+    </section>
+    <!-- End section -->
+
+    <section class="margin_60" id="subscribe_plan">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Get More Features<span>with a Premium plan</span></h3>
+                    <ul>
+                        <li><i class="icon_headphones"></i><strong>Listen or Download Audio Guides</strong>Directly from your Smartphone/Tablet, Online or Offline.</li>
+                        <li><i class="icon_documents_alt"></i><strong>Read or Download Pdf Travel Guides</strong>Directly from your Smartphone/Tablet, Online or Offline.</li>
+                        <li><i class="icon_like"></i><strong>Special Prices</strong>For Restaurants, Hotels, Bars and Cocktail bars....</li>
+                        <li><i class="icon_lifesaver"></i><strong>Premium H24 Support</strong>Contact us via email, phone or chat!</li>
+                    </ul>
+                    <div id="compatib">
+                        Compatible with Android/IOS
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <div id="box_subscribe">
+                        <ul>
+                            <li><a href="#0" class="active">6 Months<span>39<sup>$</sup></span><em>Save -40%</em></a>
+                            </li>
+                            <li><a href="#0">3 Months<span>15<sup>$</sup></span></a>
+                            </li>
+                            <li><a href="#0">1 Months<span>10<sup>$</sup></span></a>
+                            </li>
+                        </ul>
+                        <small><a href="#0">*Read more details</a></small>
+                        <div class="text-center">
+                            <a href="#" class="button_plan">Select plan</a>
+                        </div>
+                    </div>
+                    <div class="shadow">
+                    </div>
+                </div>
+            </div>
+            <!--  End row -->
+        </div>
+        <!--  End container-->
+    </section>
+    <!--  End section-->
+{% endblock page %}
+{% block extra_js %}
+    <script src="/static/js/greensock.js"></script>
+    <script src="/static/js/layerslider.transitions.js"></script>
+    <script src="/static/js/layerslider.kreaturamedia.jquery.js"></script>
+    <script type="text/javascript">
+        'use strict';
+        $('#layerslider').layerSlider({
+            autoStart: true,
+            navButtons: false,
+            navStartStop: false,
+            showCircleTimer: false,
+            responsive: true,
+            responsiveUnder: 1400,
+            layersContainer: 1170,
+            skinsPath: 'layerslider/skins/'
+                // Please make sure that you didn't forget to add a comma to the line endings
+                // except the last line!
+        });
+        // Tabs
+        new CBPFWTabs(document.getElementById('tabs'));
+    </script>
+{% endblock %}

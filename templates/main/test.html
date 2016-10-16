@@ -1,0 +1,144 @@
+ {% extends 'base.html' %}
+{% block page %}
+    <!-- SubHeader =============================================== -->
+    <section class="parallax_window_in" data-parallax="scroll" data-image-src="https://i.ytimg.com/vi/ANxvQHuW9S8/maxresdefault.jpg">
+        <div id="sub_content_in">
+            <h1>Your Search Results</h1>
+            <p>
+                Maybe your next boarding card is here...
+            </p>
+        </div>
+        <!-- End sub_content -->
+    </section>
+    <!-- End section -->
+    <!-- End SubHeader ============================================ -->
+
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a>
+                </li>
+                <li><a href="/">Flights</a>
+                </li>
+                <li>Search Results</li>
+            </ul>
+        </div>
+    </div>
+    <!-- End position -->
+    <div class="container margin_60_30">
+        <div class="row">
+
+            <aside class="col-md-3" id="sidebar">
+                <div class="theiaStickySidebar">
+                    <div id="filter_tools">
+                        <ul>
+                            <li><a href="florence-must-see-map-listing.html" id="map_icon">Map view</a>
+                            </li>
+                            <li><a href="#0" id="dest_icon">Add City</a>
+                            </li>
+                            <li><a href="florence-must-see-list.html" id="dates_icon">Add Date</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="filters_col">
+                        <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters </a>
+                        <div class="collapse" id="collapseFilters">
+                            <div class="filter_type">
+                                <h6>Price</h6>
+                                <input type="text" id="range" name="range" value="">
+                            </div>
+                            <div class="filter_type">
+                                <h6>Destinations</h6>
+                                <ul>
+                                    {% for destination in destinations %}
+                                    <li>
+                                        <label>{{ destination.destination.name }}</label>
+                                        <input id-destination="{{ destination.destination.code }}" type="checkbox" class="js-switch" checked>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="filter_type">
+                                <h6>Dates</h6>
+                                <ul>
+                                    {% for date in dates %}
+                                    <li>
+                                        <label>{{ date.start_date|date:"d/m/Y" }} - {{ date.end_date|date:"d/m/Y" }}</label>
+                                        <input id-outbound="{{ date.start_date|date:"d/m/Y" }}" id-inbound="{{ date.end_date|date:"d/m/Y" }}" type="checkbox" class="js-switch" checked>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <!--End collapse -->
+                    </div>
+                    <!--End filters col-->
+                </div>
+                <!--End Sticky -->
+            </aside>
+            <!--End aside -->
+            {% block content %}{% endblock %}
+        </div>
+        <!-- End row -->
+    </div>
+    <!-- End container -->
+
+    <div class="bg_white">
+        <div class="container margin_60_30">
+            <h3 class="second_title">View other categories</h3>
+            <div class="carousel box_cat small">
+                <div>
+                    <a href="florence-must-see-grid.html">
+                        <i class=" icon_set_1_icon-1"></i>
+                        <h3>Must see</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="florence-events-grid.html">
+                        <i class="icon_set_1_icon-41"></i>
+                        <h3>Events</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="florence-transports.html">
+                        <i class="icon_set_1_icon-25"></i>
+                        <h3>Transport</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="florence-restaurants-grid.html">
+                        <i class="icon_set_1_icon-58"></i>
+                        <h3>Restaurants</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="florence-hotels-grid.html">
+                        <i class="icon_set_1_icon-6"></i>
+                        <h3>Hotels </h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="florence-bars-grid.html">
+                        <i class="icon_set_1_icon-20"></i>
+                        <h3>Cocktail Bars</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="florence-shops-grid.html">
+                        <i class="icon_set_1_icon-50"></i>
+                        <h3>Shops</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="faq.html">
+                        <i class="icon_set_1_icon-54"></i>
+                        <h3>Info&amp;Faqs</h3>
+                    </a>
+                </div>
+            </div>
+            <!-- End Carousel -->
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- End bg_white -->
+{% endblock page %}

@@ -1,6 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView
+from django.db.models import Count
+from django.views.generic import ListView, CreateView, TemplateView
 from datetime import datetime
+
+from skyscannerSDK.models import Place
 
 from beta.form import BetaForm
 
@@ -30,3 +33,14 @@ class ComingSoonView(CreateView):
     template_name = 'coming_soon.html'
     form_class = BetaForm
     success_url = '/'
+
+
+class LandingView(TemplateView):
+    template_name = 'main/landing.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LandingView, self).get_context_data(**kwargs)
+
+        context['top_cities'] = Place.objects.filter(type__name='City').annotate(Count('userdestinationrequest')).order_by('-userdestinationrequest__count')[:3]
+
+        return context
