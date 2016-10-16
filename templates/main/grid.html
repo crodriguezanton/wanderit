@@ -359,7 +359,8 @@
             additionalMarginTop: 80
         });
 
-        var rangedata;
+        var from;
+        var to;
 
         $("#range").ionRangeSlider({
             hide_min_max: true,
@@ -373,20 +374,23 @@
             postfix: "€",
             grid: false,
             onStart: function (data) {
-                console.log(data);
-                rangedata = data;
+                from = data.from;
+                to = data.to;
             },
             onChange: function (data) {
-                console.log(data);
-                rangedata = data;
+                from = data.from;
+                to = data.to;
+                updateTickets();
             },
             onFinish: function (data) {
-                console.log(data);
-                rangedata = data;
+                from = data.from;
+                to = data.to;
+                updateTickets();
             },
             onUpdate: function (data) {
-                console.log(data);
-                rangedata = data;
+                from = data.from;
+                to = data.to;
+                updateTickets();
             }
         });
 

@@ -153,8 +153,11 @@
         }
 
         function checkPrice(ticket) {
-            return true;
-            //var price = parseFloat($(ticket).attr("price"));
+
+            var price = parseFloat($(ticket).attr("price"));
+
+            return !!(from <= price && price <= to);
+
         }
 
 
