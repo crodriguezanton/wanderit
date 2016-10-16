@@ -9,6 +9,7 @@ class Report(models.Model):
     destination = models.ForeignKey(Place, related_name='destination_city')
     outbound = models.DateField()
     inbound = models.DateField()
+    last_search_report = models.ForeignKey('SearchReport', null=True, related_name='last_search_report')
 
     def __unicode__(self):
         return self.origin.code + '-' + self.destination.code
@@ -64,6 +65,9 @@ class Report(models.Model):
         else:
             return '<div class="green-600">Buy</div>'
 
+    def update_last_search_report(self):
+        self.last_search_report = self.searchreport_set.all().order_by('-flight_search__created').first()
+        self.save()
 
 
 class SearchReport(models.Model):
@@ -79,10 +83,11 @@ class SearchReport(models.Model):
     def generate(flight_search):
         min_price_itinerary = flight_search.get_min_price()
         max_price_itinerary = flight_search.get_max_price()
+        report = Report.get_report(flight_search)
 
         search_report = SearchReport.objects.create(
             flight_search=flight_search,
-            report=Report.get_report(flight_search),
+            report=report,
             min_price_itinerary=min_price_itinerary,
             min_price=min_price_itinerary.min_price,
             max_price_itinerary=max_price_itinerary,
@@ -90,11 +95,12 @@ class SearchReport(models.Model):
             mean_price=flight_search.get_mean_price()
         )
 
+        report.last_search_report = search_report
+        report.save()
+
         ReportUpdate.generate(search_report)
 
         return search_report
-
-
 
     def get_previous(self):
         return self.report.searchreport_set.filter(

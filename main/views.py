@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView
+from datetime import datetime
 
 from beta.form import BetaForm
 
@@ -11,16 +12,18 @@ class HomeView(LoginRequiredMixin, ListView):
     model = Report
 
     def get_context_data(self, **kwargs):
-
         context = super(HomeView, self).get_context_data(**kwargs)
 
-        context['destinations'] = self.request.user.wanderituser.userdestinationrequest_set.all()
-        context['dates'] = self.request.user.wanderituser.userdatesrequest_set.all()
+        context['destinations'] = self.request.user.wanderituser.userdestinationrequest_set.all().order_by(
+            'destination__name')
+        context['dates'] = self.request.user.wanderituser.userdatesrequest_set.filter(
+            start_date=datetime.today()).order_by('start_date')
 
         return context
 
     def get_queryset(self):
-        return self.model.objects.filter(searchrequest__userrequestmatch__wiuser__user=self.request.user).exclude(searchreport=None)
+        return self.model.objects.filter(searchrequest__userrequestmatch__wiuser__user=self.request.user).exclude(
+            searchreport=None)
 
 
 class ComingSoonView(CreateView):
