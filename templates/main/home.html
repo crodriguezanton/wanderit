@@ -131,16 +131,12 @@
 
         function updateTickets() {
             $('.ticket').each(function(){
-                if (checkDestination(this) && checkPrice(this) && checkPrice(this)) {
-                $(this).parent().show('slow');
-            } else {
-                $(this).parent().hide('slow');
-            }
+                if (checkDestination(this) && checkDates(this) && checkPrice(this)) {
+                    $(this).parent().show('slow');
+                } else {
+                    $(this).parent().hide('slow');
+                }
             });
-        }
-
-        function checkTicket(ticket) {
-
         }
 
         function checkDestination(ticket) {
