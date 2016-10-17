@@ -8,7 +8,7 @@
         <div id="layerslider" style="width:100%;height:667px;">
             <!-- first slide -->
             <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
-                <img src="/static/img/slides/slide_1.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
+                <img src="https://i.ytimg.com/vi/ANxvQHuW9S8/maxresdefault.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
                 <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">The most important info<br>
                 on your Mobile during a visit</h3>
                 <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
@@ -17,7 +17,7 @@
             </div>
             <!-- second slide -->
             <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:85;">
-                <img src="/static/img/slides/slide_2.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
+                <img src="https://media.timeout.com/images/102908813/image.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
                 <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Find easily<br>
                 interesting place close to you</h3>
                 <p class="ls-l slide_typo_2" style="top:55%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
@@ -25,13 +25,13 @@
                 </p>
             </div>
             <!-- third slide -->
-            <div class="ls-slide" data-ls="slidedelay:5000; transition2d:103;">
-                <img src="/static/img/slides/slide_3.jpg" class="ls-bg" alt="Slide background" width="1600" height="667">
+            <!--<div class="ls-slide" data-ls="slidedelay:5000; transition2d:103;">
+                <img src="http://foundtheworld.com/wp-content/uploads/2016/08/San-Francisco-6.jpg" class="ls-bg" alt="Slide background" style="width: 100%">
                 <h3 class="ls-l slide_typo" style="top: 48%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">Discover fantastic places</h3>
                 <p class="ls-l slide_typo_2" style="top:54%; left:50%;" data-ls="durationin:2000;delayin:1000;easingin:easeOutElastic;">
                     We offer a variety of services and options
                 </p>
-            </div>
+            </div>-->
         </div>
     </div>
     <!-- End layerslider -->
@@ -41,7 +41,7 @@
             <div class="main_title">
                 <h2><strong>Top Destinations</strong> in Wander<strong>it</strong></h2>
                 <p>
-                    Ne his postulant posidonium adversarium. Ius tollit tamquam indoctum ea, cu quo equidem perfecto adipiscing. Eu mel aliquid delenit. Recteque laboramus ea est, te qui eirmod similique.
+                    These are the destinations that most wanderers want to go. Check out if you like them!
                 </p>
                 <span><em></em></span>
             </div>
@@ -56,16 +56,9 @@
                             <span>TOP {{ forloop.counter }}</span>
                         </div>
                         <div class="tools_i">
-                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
-                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
-                                <button type="submit" class="tooltip_styled tooltip-effect-4">
-                                    <span class="tooltip-item"></span>
-                                    <span class="tooltip-content">Directions</span>
-                                </button>
-                            </form>
                             <div class="wishlist">
                                 <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
-                                <div class="tooltip-content">Bookmark</div>
+                                <div class="tooltip-content">More info</div>
                                 </a>
                             </div>
                         </div>
@@ -93,16 +86,9 @@
                             <span>TOP {{ forloop.counter }}</span>
                         </div>
                         <div class="tools_i">
-                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
-                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
-                                <button type="submit" class="tooltip_styled tooltip-effect-4">
-                                    <span class="tooltip-item"></span>
-                                    <span class="tooltip-content">Directions</span>
-                                </button>
-                            </form>
                             <div class="wishlist">
                                 <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
-                                <div class="tooltip-content">Bookmark</div>
+                                <div class="tooltip-content">More info</div>
                                 </a>
                             </div>
                         </div>
@@ -131,20 +117,13 @@
                 {% for city in featured %}
                 <div class="col-md-4">
                     <div class="img_wrapper_grid">
-                        <div class="ribbon">
+                        <div class="ribbon top">
                             <span>Featured</span>
                         </div>
                         <div class="tools_i">
-                            <form action="http://maps.google.com/maps" method="get" target="_blank" class="directions_list">
-                                <input type="hidden" name="daddr" value="43.773460, 11.255985">
-                                <button type="submit" class="tooltip_styled tooltip-effect-4">
-                                    <span class="tooltip-item"></span>
-                                    <span class="tooltip-content">Directions</span>
-                                </button>
-                            </form>
                             <div class="wishlist">
                                 <a class="tooltip_styled tooltip-effect-4"><span class="tooltip-item"></span>
-                                <div class="tooltip-content">Bookmark</div>
+                                <div class="tooltip-content">More info</div>
                                 </a>
                             </div>
                         </div>
@@ -221,23 +200,23 @@
                 <div class="col-md-6">
                     <h3>Get More Features<span>with a Premium plan</span></h3>
                     <ul>
-                        <li><i class="icon_headphones"></i><strong>Search World-Wide!</strong>Add more destinations. Free plan is limited to two destinations.</li>
-                        <li><i class="icon_documents_alt"></i><strong>Search for many dates at a time.</strong>Free plan is limited to only one date search.</li>
-                        <li><i class="icon_like"></i><strong>Get Stats!</strong>Premium plan offers historical data to help you book your flight</li>
-                        <li><i class="icon_lifesaver"></i><strong>Premium Notifications</strong>Premium Users will receive custom price alerts.</li>
+                        <li><i class="icon_globe-2"></i><strong>Search World-Wide!</strong>Add more destinations. Free plan is limited to two destinations.</li>
+                        <li><i class="icon_calendar"></i><strong>Search for many dates at a time.</strong>Free plan is limited to only one date search.</li>
+                        <li><i class="icon_datareport"></i><strong>Get Stats!</strong>Premium plan offers historical data to help you book your flight</li>
+                        <li><i class="icon_comment_alt"></i><strong>Premium Notifications</strong>Premium Users will receive custom price alerts.</li>
                     </ul>
-                    <div id="compatib">
+                    <!--<div id="compatib">
                         Compatible with Android/IOS
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-md-5 col-md-offset-1">
                     <div id="box_subscribe">
                         <ul>
-                            <li><a href="#0" class="active">6 Months<span>9,99<sup>€</sup></span><em>Save -60%</em></a>
+                            <li><a href="#0" class="active">6 Months<span>9<sup>,99€</sup></span><em>Save -60%</em></a>
                             </li>
-                            <li><a href="#0">3 Months<span>7.99<sup>€</sup></span></a>
+                            <li><a href="#0">3 Months<span>7<sup>,99€</sup></span></a>
                             </li>
-                            <li><a href="#0">1 Months<span>2.99<sup>€</sup></span></a>
+                            <li><a href="#0">1 Months<span>2<sup>,99€</sup></span></a>
                             </li>
                             <li><a href="#0">Free plan<span>0<sup>€</sup></span></a>
                             </li>

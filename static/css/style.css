@@ -1130,8 +1130,8 @@ a#filters_col_bt:before{
 }
 .wishlist{
 	position:absolute;
-	top:18px;
-	right:18px;
+	top:12px;
+	right:20px;
 	width:18px;
 	height:26px;
 	z-index:2;
@@ -1143,8 +1143,8 @@ a#filters_col_bt:before{
 	line-height:1;
 }
 .wishlist .tooltip-item:before{
-  font-family: "fontello";
-  content: "\eeab";
+  font-family: "ElegantIcons";
+  content: "\70";
 }
 .wishlist a, .directions_list button, .directions_list_map a {
 	color:#fff;
