@@ -7,7 +7,7 @@ django-jet==1.0.2
 django-skyscanner==0.1
 oauth==1.0.1
 oauthlib==2.0.0
-Pillow==3.4.1
+Pillow==8.2.0
 python-openid==2.2.5
 pytz==2016.7
 raven==5.27.1
